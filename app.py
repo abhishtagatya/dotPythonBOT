@@ -52,13 +52,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_bot_api.reply_message(
-        TextSendMessage(text="Hello Word"))
-
-def message_help(event):
-
-    if event == 'Help':
-        line_bot_api.reply_message(
-        TextSendMessage(text="Need Help?"))
+        event.reply_token,
+        TextSendMessage(text="HelloWord"))
 
 
 if __name__ == "__main__":
