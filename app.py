@@ -14,7 +14,6 @@
 
 import os
 import sys
-
 from flask import Flask, request, abort
 
 from linebot import (
@@ -24,7 +23,9 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, StickerMessage,
+    StickerSendMessage, LocationMessage, LocationSendMessage,
+    ImageMessage, VideoMessage, AudioMessage, FileMessage,
 )
 
 app = Flask(__name__)
@@ -50,26 +51,24 @@ def callback():
 
     return 'OK'
 
+command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback']
 
 @handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    message_echo(event)
+def echo_message(event):
 
+    if event.message.text not in command :
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=event.message.text))
 
-class BotReply:
+@handler.add(MessageEvent, message=TextMessage)
+def course_message(event):
 
-    def message_echo(event):
-        if event.message.text != 'help':
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=event.message.text)
-            )
+    if event.message.text in command and event.message.text == command[0]:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Course"))
 
-        else :
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text='Need Help?')
-            )
 
 
 
