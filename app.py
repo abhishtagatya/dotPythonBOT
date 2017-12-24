@@ -80,7 +80,7 @@ def handle_message(event):
     def key_message():
         pass
 
-    if event.message.text is command[0]:
+    if event.message.text is '/course':
         course_message()
     else :
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
