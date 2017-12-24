@@ -54,31 +54,36 @@ def callback():
 command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback']
 
 @handler.add(MessageEvent, message=TextMessage)
-def course_message(event):
+def handle_message(event):
 
-    if event.message.text in command and event.message.text == command[0]:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="Course"))
+    def course_message():
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Course'))
 
-@handler.add(MessageEvent, message=TextMessage)
-def ask_message(event):
+    def ask_message():
+        pass
 
-    if event.message.text in command and event.message.text == command[1]:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="Ask"))
+    def docs_message():
+        pass
 
-@handler.add(MessageEvent, message=TextMessage)
-def docs_message(event):
+    def dev_message():
+        pass
 
-    if event.message.text in command and event.message.text == command[2]:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="Docs"))
+    def group_message():
+        pass
 
+    def donate_message():
+        pass
 
+    def feedback_message():
+        pass
 
+    def key_message():
+        pass
+
+    if event.message.text is command[0]:
+        course_message()
+    else :
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
 
 if __name__ == "__main__":
