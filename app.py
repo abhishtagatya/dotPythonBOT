@@ -73,19 +73,22 @@ def handle_message(event):
         TextSendMessage(text="Lets enroll the course!".format(text)),
         TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module ")])
 
-        if text == 1:
-            line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="Enrolling course Getting Started"))
-        elif text == 2:
-            line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="Enrolling course Basic"))
-        else :
-            line_bot_api.reply_message(
-            event.reply_token,[
-            TextSendMessage(text="Sorry {} is not a valid command".format(text)),
-            TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
+        while True:
+            if text == 1:
+                line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="Enrolling course Getting Started"))
+            elif text == 2:
+                line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="Enrolling course Basic"))
+            elif text in ['/back','/exit','/b']:
+                break
+            else :
+                line_bot_api.reply_message(
+                event.reply_token,[
+                TextSendMessage(text="Sorry {} is not a valid command".format(text)),
+                TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
 
 
     def ask_message():
