@@ -56,6 +56,16 @@ command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback']
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
+    if event.message.text == 'Hello':
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Hi there'))
+    else :
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Course'))
+
+
     def course_message():
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Course'))
 
@@ -80,10 +90,6 @@ def handle_message(event):
     def key_message():
         pass
 
-    if event.message.text is '/course':
-        course_message()
-    else :
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
 
 if __name__ == "__main__":
