@@ -1,0 +1,50 @@
+dotPython Chat Bot by Abhishta from dotLearn.
+version 0.1 Alpha (Limited Release)
+
+dotPython is a chat bot that helps people to learn about the Python Programming language.
+
+Control Flow :
+
+Greet Message { User Added the bot }
+Key Show {'/course','/ask','/docs','/dev','/group','/donate','/feedback'}
+Retrieve Message { Message > Statement > API > Reply}
+
+Courses : (After Each Course, give homework)
+  - Getting Started (Installation, Introduction, Text Editor)
+  - Basic (Check 'check codecademy.com') :
+    - Syntax (Variable, Operator, Data Type)
+    - String and Console
+    - Multi Data Set (List, Tuple, Set, Dict)
+    - Loop
+    - Condition
+    - Function
+  - File Operation :
+    - __init__
+    - CSV
+    - JSON
+  - Python Standard Module :
+    - Turtle
+    - Math
+    - Statistic
+    - datetime
+  - Python Third Party Module
+
+
+Ask :
+  - Version [print(current version)]
+  - About
+  - Guide
+  - Python [send to e-mail]
+
+Docs : /docs [module] ? send file : 'module [module] not found'
+
+Dev : /dev -> Show Developer Data
+
+Group :
+  - About
+  - Show
+  - Invite (By QR_CODE)
+
+Donate : /donate -> PayPal, KickStarter, etc.
+
+Feedback : /feedback -> send feedback to 'dotLearn@dotLearn.com'
