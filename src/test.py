@@ -1,11 +1,6 @@
-def Top(string):
+# -*- coding: utf-8 -*-
+import json
 
-    print(string)
-
-    def Below():
-
-        print(string)
-
-    Below()
-
-Top('Hello')
+with open('src/course/getting_started.json', 'r') as json_file:
+    lesson = json.load(json_file)
+    print lesson["lesson"]["introduction_lesson"]

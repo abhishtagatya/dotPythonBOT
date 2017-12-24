@@ -14,6 +14,7 @@
 
 import os
 import sys
+import json
 from flask import Flask, request, abort
 
 from linebot import (
@@ -53,12 +54,23 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    """ Handles all received message from user and process it through the
+    controll flow below """
 
+    # Available commands
     cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key']
     text = event.message.text
 
+    # Get User Profile
+    user_profile = line_bot_api.get_profile(event.source.user_id)
+
     def course_message():
-        pass
+        """ Enter the course option and select from a few different course option """
+
+        line_bot_api.reply_message(
+        event.reply_token,[
+        TextSendMessage(text="Lets enroll the course!".format(text)),
+        TextSendMessage(text="Choose the course you want to learn : \n + Getting Started \n + Basic \n + File Operation \n + Python Standard Module \n + Python Third Party Module ")])
 
     def ask_message():
         pass
@@ -85,6 +97,18 @@ def handle_message(event):
         course_message()
     elif text == cmd[1]:
         ask_message()
+    elif text == cmd[2]:
+        docs_message()
+    elif text == cmd[3]:
+        dev_message()
+    elif text == cmd[4]:
+        group_message()
+    elif text == cmd[5]:
+        donate_message()
+    elif text == cmd[6]:
+        feedback_message()
+    elif text == cmd[7]:
+        key_message()
     else :
         line_bot_api.reply_message(
         event.reply_token,[
