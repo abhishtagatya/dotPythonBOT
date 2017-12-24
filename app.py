@@ -58,22 +58,38 @@ def handle_message(event):
     text = event.message.text
 
     def course_message():
-        line_bot_api.reply_message(
-        event.reply_token,[
-        TextSendMessage(text='Join Course?'),
-        TextSendMessage(text='Now or never')
-        ])
+        pass
+
+    def ask_message():
+        pass
+
+    def docs_message():
+        pass
+
+    def dev_message():
+        pass
+
+    def group_message():
+        pass
+
+    def donate_message():
+        pass
+
+    def feedback_message():
+        pass
+
+    def key_message():
+        pass
 
     if text == cmd[0]:
         course_message()
     elif text == cmd[1]:
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='Ask what?'))
+        ask_message()
     else :
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=text))
+        TextSendMessage(text="Sorry '%s' is not a valid command", %text),
+        TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
 
 
 if __name__ == "__main__":
