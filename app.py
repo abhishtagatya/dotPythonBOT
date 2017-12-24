@@ -57,10 +57,13 @@ def handle_message(event):
     cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key']
     text = event.message.text
 
-    if text == cmd[0]:
+    def course_message():
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='Join Course?'))
+
+    if text == cmd[0]:
+        course_message()
     elif text == cmd[1]:
         line_bot_api.reply_message(
         event.reply_token,
