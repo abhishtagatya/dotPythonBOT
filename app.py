@@ -56,12 +56,13 @@ command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback']
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    if event.message.text is command[0]:
+    if str(event.message.text) is command[0]:
         course_message()
     else :
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='Fail'))
+        
 
 
     def course_message():
