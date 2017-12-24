@@ -59,8 +59,10 @@ def handle_message(event):
 
     def course_message():
         line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='Join Course?'))
+        event.reply_token,[
+        TextSendMessage(text='Join Course?'),
+        TextSendMessage(text='Now or never')
+        ])
 
     if text == cmd[0]:
         course_message()
