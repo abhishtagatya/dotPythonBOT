@@ -54,20 +54,21 @@ def callback():
 command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback']
 
 @handler.add(MessageEvent, message=TextMessage)
-def echo_message(event):
-
-    if event.message.text not in command :
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=event.message.text))
-
-@handler.add(MessageEvent, message=TextMessage)
 def course_message(event):
 
     if event.message.text in command and event.message.text == command[0]:
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="Course"))
+
+@handler.add(MessageEvent, message=TextMessage)
+def ask_message(event):
+
+    if event.message.text in command and event.message.text == command[1]:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Ask"))
+
 
 
 
