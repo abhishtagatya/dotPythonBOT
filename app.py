@@ -51,44 +51,25 @@ def callback():
 
     return 'OK'
 
-command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback']
+command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key']
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    if str(event.message.text) is command[0]:
-        course_message()
+    text = event.message.text
+
+    if text is command[0]:
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Join Course?'))
+    elif text is command[1]:
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Ask what?'))
     else :
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Fail'))
-        
-
-
-    def course_message():
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Course'))
-
-    def ask_message():
-        pass
-
-    def docs_message():
-        pass
-
-    def dev_message():
-        pass
-
-    def group_message():
-        pass
-
-    def donate_message():
-        pass
-
-    def feedback_message():
-        pass
-
-    def key_message():
-        pass
-
+        TextSendMessage(text=text))
 
 
 if __name__ == "__main__":
