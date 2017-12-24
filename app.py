@@ -51,11 +51,10 @@ def callback():
 
     return 'OK'
 
-command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key']
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
+    command = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key']
     text = event.message.text
 
     if text is command[0]:
