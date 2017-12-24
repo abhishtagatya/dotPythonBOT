@@ -58,8 +58,9 @@ def handle_message(event):
     controll flow below """
 
     # Available commands
-    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key']
-    text = event.message.text
+    cmd = [['/course','/c'],['/ask','/a'],['/docs','/d'],['/dev','/developer'],
+    ['/group','/g'],['/donate','/d'],['/feedback','/f'],'/key']
+    text = (event.message.text).lower()
 
     # Get User Profile
     user_profile = line_bot_api.get_profile(event.source.user_id)
@@ -70,7 +71,22 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,[
         TextSendMessage(text="Lets enroll the course!".format(text)),
-        TextSendMessage(text="Choose the course you want to learn : \n + Getting Started \n + Basic \n + File Operation \n + Python Standard Module \n + Python Third Party Module ")])
+        TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module ")])
+
+        if text == 1:
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Enrolling course Getting Started"))
+        elif text == 2:
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Enrolling course Basic"))
+        else :
+            line_bot_api.reply_message(
+            event.reply_token,[
+            TextSendMessage(text="Sorry {} is not a valid command".format(text)),
+            TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
+
 
     def ask_message():
         pass
@@ -93,19 +109,19 @@ def handle_message(event):
     def key_message():
         pass
 
-    if text == cmd[0]:
+    if text in cmd[0]:
         course_message()
-    elif text == cmd[1]:
+    elif text in cmd[1]:
         ask_message()
-    elif text == cmd[2]:
+    elif text in cmd[2]:
         docs_message()
-    elif text == cmd[3]:
+    elif text in cmd[3]:
         dev_message()
-    elif text == cmd[4]:
+    elif text in cmd[4]:
         group_message()
-    elif text == cmd[5]:
+    elif text in cmd[5]:
         donate_message()
-    elif text == cmd[6]:
+    elif text in cmd[6]:
         feedback_message()
     elif text == cmd[7]:
         key_message()
@@ -117,5 +133,5 @@ def handle_message(event):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5001))
     app.run(host='0.0.0.0', port=port)
