@@ -69,6 +69,14 @@ def ask_message(event):
             event.reply_token,
             TextSendMessage(text="Ask"))
 
+@handler.add(MessageEvent, message=TextMessage)
+def docs_message(event):
+
+    if event.message.text in command and event.message.text == command[2]:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Docs"))
+
 
 
 
