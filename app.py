@@ -61,34 +61,24 @@ def handle_message(event):
     cmd = [['/course','/c'],['/ask','/a'],['/docs','/d'],['/dev','/developer'],
     ['/group','/g'],['/donate','/d'],['/feedback','/f'],'/key']
     text = (event.message.text).lower()
+    text_argument = text.split()
 
     # Get User Profile
     user_profile = line_bot_api.get_profile(event.source.user_id)
 
-    def course_message():
+    def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
 
-        line_bot_api.reply_message(
-        event.reply_token,[
-        TextSendMessage(text="Lets enroll the course!".format(text)),
-        TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module ")])
-
-        while True:
-            if text == 1:
+        if option == [] :
+            line_bot_api.reply_message(
+            event.reply_token,[
+            TextSendMessage(text="Lets enroll the course!".format(text)),
+            TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module ")])
+        else :
+            if option in ['getting','getting_started','get_started','started']:
                 line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text="Enrolling course Getting Started"))
-            elif text == 2:
-                line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="Enrolling course Basic"))
-            elif text in ['/back','/exit','/b']:
-                break
-            else :
-                line_bot_api.reply_message(
-                event.reply_token,[
-                TextSendMessage(text="Sorry {} is not a valid command".format(text)),
-                TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
+                TextSendMessage(text='Lets get started!'))
 
 
     def ask_message():
@@ -113,7 +103,7 @@ def handle_message(event):
         pass
 
     if text in cmd[0]:
-        course_message()
+        course_message(text_array[:0])
     elif text in cmd[1]:
         ask_message()
     elif text in cmd[2]:
