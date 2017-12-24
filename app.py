@@ -87,8 +87,8 @@ def handle_message(event):
         ask_message()
     else :
         line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="Sorry '%s' is not a valid command", %text),
+        event.reply_token,[
+        TextSendMessage(text="Sorry {} is not a valid command".format(text)),
         TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
 
 
