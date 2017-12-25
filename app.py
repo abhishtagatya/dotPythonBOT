@@ -58,8 +58,7 @@ def handle_message(event):
     controll flow below """
 
     # Available commands
-    cmd = [['/course','/c'],['/ask','/a'],['/docs','/d'],['/dev','/developer'],
-           ['/group','/g'],['/donate','/d'],['/feedback','/f'],'/key']
+    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key']
     text = (event.message.text).lower()
     text_argument = text.split()
 
@@ -101,21 +100,21 @@ def handle_message(event):
     def key_message():
         pass
 
-    if text in cmd[0]:
-        course_message(text_argument[:0])
-    elif text in cmd[1]:
+    if cmd[0] in text:
+        course_message(text_argument)
+    elif cmd[1] in text:
         ask_message()
-    elif text in cmd[2]:
+    elif cmd[2] in text:
         docs_message()
-    elif text in cmd[3]:
+    elif cmd[3] in text:
         dev_message()
-    elif text in cmd[4]:
+    elif cmd[4] in text:
         group_message()
-    elif text in cmd[5]:
+    elif cmd[5] in text:
         donate_message()
-    elif text in cmd[6]:
+    elif cmd[6] in text:
         feedback_message()
-    elif text == cmd[7]:
+    elif cmd[7] in text:
         key_message()
     else :
         line_bot_api.reply_message(
