@@ -77,6 +77,10 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['introduction_lesson']))
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text='Test'))
 
 
         else :
