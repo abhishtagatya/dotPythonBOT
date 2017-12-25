@@ -59,7 +59,7 @@ def handle_message(event):
 
     # Available commands
     cmd = [['/course','/c'],['/ask','/a'],['/docs','/d'],['/dev','/developer'],
-    ['/group','/g'],['/donate','/d'],['/feedback','/f'],'/key']
+           ['/group','/g'],['/donate','/d'],['/feedback','/f'],'/key']
     text = (event.message.text).lower()
     text_argument = text.split()
 
@@ -68,17 +68,15 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-
-        if option == [] :
+        if option in ['getting','get','started','start','getting_started']:
             line_bot_api.reply_message(
-            event.reply_token,[
-            TextSendMessage(text="Lets enroll the course!".format(text)),
-            TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module ")])
-        else :
-            if option in ['getting','getting_started','get_started','started']:
-                line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text='Lets get started!'))
+                TextSendMessage(text='Test Succesfull!'))
+        else :
+            line_bot_api.reply_message(
+                event.reply_token,[
+                TextSendMessage(text="Lets enroll the course!".format(text)),
+                TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module ")])
 
 
     def ask_message():
@@ -103,7 +101,7 @@ def handle_message(event):
         pass
 
     if text in cmd[0]:
-        course_message(text_array[:0])
+        course_message(text_argument[:0])
     elif text in cmd[1]:
         ask_message()
     elif text in cmd[2]:
