@@ -30,6 +30,7 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
+version = '0.1 ALPHA BUILD'
 
 line_bot_api = LineBotApi('z0g2r0/7tVh6rEYEMA/Utv6G5d9y3LEtpgRdLHUSrSQOAfl7iQCwtaZ/TEEVAxE6DKLtOShFdloBJv9pU/RFw87WfvmwT/aW5rNLttga0N8fOjSmET3QWgozNt35VnDK4+faM2ACvG2fqpr5vIB88QdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('ee6ad8acedc43c85b4a0a277807d5df5')
@@ -67,16 +68,23 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-        if '1' in option:
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text='Test Succesfull!'))
+        if ['get_started','started','getting','started'] in option:installation
+
+            with open('src/course/getting_started','r') as course_getting_started:
+                # Opens the src/course/getting started and reading it!
+                lesson = json.load(course_getting_started)
+                if ['intro','introduction_lesson','introduction']:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['introduction_lesson']))
+
+
         else :
             line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Lets enroll the course!".format(text)),
                 TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module "),
-                TextSendMessage(text="To enroll type : /course [number]")])
+                TextSendMessage(text="To enroll, type : /course [number]")])
 
 
     def ask_message():
