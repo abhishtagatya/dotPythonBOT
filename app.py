@@ -68,26 +68,26 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-        if ['get_started','getting','started','getting_started',] in option:
+        if 'get_started' in option:
 
             with open('src/course/getting_started.json','r') as course_getting_started:
                 # Opens the src/course/getting started and reading it!
                 lesson = json.load(course_getting_started)
 
                 # Below is the Controll flow for the statement 'getting started'
-                if ['introduction','intro',] in option:
+                if 'intro' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['introduction_lesson']))
-                elif ['install','installation','installing',] in option:
+                elif 'install' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['install_lesson']))
-                elif ['version','python_version',] in option:
+                elif 'version' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
-                elif ['version','python_version',] in option:
+                elif 'run_program' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['pyrun_lesson']))
@@ -95,7 +95,7 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,[
                         TextSendMessage(text="Choose the available lessons : "),
-                        TextSendMessage(text=" + Introduction (intro) \n + Installation (install) \n + Python Version (version) \n + Run Python (run)"),
+                        TextSendMessage(text=" + Introduction (intro) \n + Installation (install) \n + Python Version (version) \n + Run Python (run_program)"),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
 
