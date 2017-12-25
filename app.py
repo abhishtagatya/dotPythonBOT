@@ -68,12 +68,12 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-        if ['get_started','started','getting','started'] in option:
+        if 'get_started' in option:
 
             with open('src/course/getting_started','r') as course_getting_started:
                 # Opens the src/course/getting started and reading it!
                 lesson = json.load(course_getting_started)
-                if ['intro','introduction_lesson','introduction']:
+                if 'introduction' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['introduction_lesson']))
@@ -83,7 +83,8 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Lets enroll the course!".format(text)),
-                TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module "),
+                TextSendMessage(
+                text="Choose the course you want to learn : \n 1. Getting Started (get_started) \n 2. Basic (basic) \n 3. File Operation (file_ops) \n 4. Python Standard Module (module) \n 5. Python Third Party Module (third_party) "),
                 TextSendMessage(text="To enroll, type : /course [number]")])
 
 
