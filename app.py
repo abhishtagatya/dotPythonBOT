@@ -68,7 +68,7 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-        if ['get_started','started','getting','started'] in option:installation
+        if ['get_started','started','getting','started'] in option:
 
             with open('src/course/getting_started','r') as course_getting_started:
                 # Opens the src/course/getting started and reading it!
