@@ -70,7 +70,7 @@ def handle_message(event):
         """ Enter the course option and select from a few different course option """
         if 'get_started' in option:
 
-            with open('src/course/getting_started','r') as course_getting_started:
+            with open('src/course/getting_started.json','r') as course_getting_started:
                 # Opens the src/course/getting started and reading it!
                 lesson = json.load(course_getting_started)
                 if 'introduction' in option:
