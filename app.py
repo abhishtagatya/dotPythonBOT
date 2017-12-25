@@ -68,7 +68,7 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-        if option in ['getting','get','started','start','getting_started']:
+        if '1' in option:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text='Test Succesfull!'))
@@ -76,7 +76,8 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Lets enroll the course!".format(text)),
-                TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module ")])
+                TextSendMessage(text="Choose the course you want to learn : \n 1. Getting Started \n 2. Basic \n 3. File Operation \n 4. Python Standard Module \n 5. Python Third Party Module "),
+                TextSendMessage(text="To enroll type : /course [number]")])
 
 
     def ask_message():
