@@ -11,6 +11,8 @@
 #  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #  License for the specific language governing permissions and limitations
 #  under the License.
+from __future__ import unicode_literals
+
 
 import os
 import sys
@@ -26,7 +28,8 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, StickerMessage,
     StickerSendMessage, LocationMessage, LocationSendMessage,
-    ImageMessage, VideoMessage, AudioMessage, FileMessage,
+    ImageMessage, ImageSendMessage, VideoMessage, AudioMessage,
+    FileMessage,
 )
 
 app = Flask(__name__)
@@ -87,6 +90,10 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        ImageSendMessage(original_content_url='src/static/img/course_version.jpeg')
+                    )
                 elif 'run_program' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
@@ -94,9 +101,11 @@ def handle_message(event):
                 else :
                     line_bot_api.reply_message(
                         event.reply_token,[
-                        TextSendMessage(text="Choose the available lessons : "),
-                        TextSendMessage(text=" + Introduction (intro) \n + Installation (install) \n + Python Version (version) \n + Run Python (run_program)"),
+                        TextSendMessage(text="Choose the available lessons :  + Introduction (intro) \n + Installation (install) \n + Python Version (version) \n + Run Python (run_program)"),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
+
+        elif 'basic' in option:
+            pass
 
 
         else :
