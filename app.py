@@ -92,7 +92,7 @@ def handle_message(event):
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
                     line_bot_api.reply_message(
                         event.reply_token,
-                        ImageSendMessage(original_content_url='src/static/img/course_version.jpeg')
+                        ImageSendMessage(original_content_url='https://qph.ec.quoracdn.net/main-qimg-f7e6224c397e1d2728a46353de7c2ce8')
                     )
                 elif 'run_program' in option:
                     line_bot_api.reply_message(
