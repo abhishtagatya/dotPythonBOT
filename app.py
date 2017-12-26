@@ -56,7 +56,7 @@ def callback():
 
     return 'OK'
 
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message=(TextMessage, ImageMessage))
 def handle_message(event):
     """ Handles all received message from user and process it through the
     controll flow below """
@@ -92,7 +92,7 @@ def handle_message(event):
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
                     line_bot_api.reply_message(
                         event.reply_token,
-                        ImageSendMessage(original_content_url='https://qph.ec.quoracdn.net/main-qimg-f7e6224c397e1d2728a46353de7c2ce8')
+                        ImageSendMessage(original_content_url='src/static/img/course_version.jpeg')
                     )
                 elif 'run_program' in option:
                     line_bot_api.reply_message(
@@ -162,5 +162,5 @@ def handle_message(event):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5001))
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
