@@ -56,7 +56,7 @@ def callback():
 
     return 'OK'
 
-@handler.add(MessageEvent, message=(TextMessage, ImageMessage))
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     """ Handles all received message from user and process it through the
     controll flow below """
@@ -90,10 +90,10 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
+                elif 'script' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
-                        ImageSendMessage(original_content_url='src/static/img/course_version.jpeg')
-                    )
+                        TextSendMessage(text=lesson['lesson']['script_lesson']))
                 elif 'run_program' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
@@ -101,7 +101,8 @@ def handle_message(event):
                 else :
                     line_bot_api.reply_message(
                         event.reply_token,[
-                        TextSendMessage(text="Choose the available lessons :  + Introduction (intro) \n + Installation (install) \n + Python Version (version) \n + Run Python (run_program)"),
+                        TextSendMessage(text=lesson['lesson']['get_started']),
+                        TextSendMessage(text=lesson['lesson']['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
         elif 'basic' in option:

@@ -1,0 +1,12 @@
+{
+  "lesson":{
+    "syntax" : {
+      "variable" : "VARIABLE \n\nIn programming, a variable is a value or data that can change / manipulated depending on conditions or informations that is passed on the program. Variables in python can store various data types like numbers, strings, boole or even a variable it self and many more types. This helps programmer to keep track of things and make it easier for them to change around and operate with data. For more informations about variables in python, click here www.tutorialspoint.com/python/python_variable_types.htm \n\nExample : pi = 3.14",
+      "boolean" : "BOOLEAN \n\nA boolean is a data type that only has two values, which is True or False, think of it as a Light Switch, its either on or off. Booleans can be stored in a variable, just like any data types. Booleans are commonly used to evaluate a condition and it can be operated as well.\n\nExample : \nwhile True:\n\tprint 'dotPython!'",
+      "reassign" : "REASSIGN \n\nReassignment of variable is a way to manipulate data easily.\n\nExample : \nstatus = 'Sad'\nstatus = 'Happy'\n\nNow the variable called status has changed from sad to happy because we reassign the variable in the next line.",
+      "comment" : "COMMENTS \n\nComments are a way to make your program easier to understand by putting texts with (#) for single line comments and (\"\"\") for multi line comments.\n\nExample :\n # This is a comment!",
+      "operator" : "OPERATOR \n\nOperators are symbols that programs used for an operation or data manipulation. We will divide operators into 3, unary, binary and ternary. Unary operators only consists of one operand (Example : -a ), binary operators consists of 2 operands (Example : a + b) and ternary operations consists more than 2 operands (Example : (a + b) < c ). There are many operators and how to use them, click here to know more\n www.programiz.com/python-programming/operators",
+      "" : ""
+    }
+  }
+}

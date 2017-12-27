@@ -1,9 +1,7 @@
-import json
+# Example
 
-with open('src/course/getting_started.json','r') as json_file:
-    lesson = json.load(json_file)
+# Python 2
+print "dotPython!"
 
-    print lesson["lesson"][0]
-    print None
-    print None
-    print None
+# Python 3
+print("dotPython!")
