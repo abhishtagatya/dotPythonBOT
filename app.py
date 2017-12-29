@@ -140,8 +140,42 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['syntax']['description']),
                             TextSendMessage(text=lesson['lesson']['syntax']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
                 elif 'strings' in option:
+                    if 'index' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['strings']['str_index']))
+                    elif 'operate' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['strings']['str_operate']))
+                    elif 'func' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['strings']['str_func']))
+                    elif 'format' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['strings']['str_format']))
+                    elif 'input' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['strings']['str_input']))
+                    elif 'typecast' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['strings']['typecast']))
+                    else :
+                        line_bot_api.reply_message(
+                            event.reply_token,[
+                            TextSendMessage(text=lesson['lesson']['strings']['description']),
+                            TextSendMessage(text=lesson['lesson']['strings']['menu_option']),
+                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+                elif 'multi_data' in option:
                     pass
+
                 else :
                     line_bot_api.reply_message(
                         event.reply_token,[

@@ -1,7 +1,1 @@
-# Example
-
-# Python 2
-print "dotPython!"
-
-# Python 3
-print("dotPython!")
+print ('{0}{0}').format("Aga")
