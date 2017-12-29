@@ -67,7 +67,7 @@ def handle_message(event):
 
     # Get User Profile
     user_profile = line_bot_api.get_profile(event.source.user_id)
-    user_name = user_profile["displayName"]
+    user_name = user_profile.displayName
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
@@ -156,9 +156,14 @@ def handle_message(event):
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['strings']['str_func']))
                     elif 'format' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format(user_name)))
+                        if isinstance(event.source, SourcUser):
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format(user_name)))
+                        else :
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=lesson['lesson']['strings']['str_format_debug']))
                     elif 'input' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
