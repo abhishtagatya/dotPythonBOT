@@ -157,7 +157,7 @@ def handle_message(event):
                     elif 'format' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['strings']['str_format']))
+                            TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format(user_profile)))
                     elif 'input' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
