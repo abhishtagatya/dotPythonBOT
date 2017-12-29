@@ -100,8 +100,8 @@ def handle_message(event):
                 else :
                     line_bot_api.reply_message(
                         event.reply_token,[
-                        TextSendMessage(text=lesson['lesson']['description']),
-                        TextSendMessage(text=lesson['lesson']['menu_option']),
+                        TextSendMessage(text=lesson['description']),
+                        TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
         elif 'basic' in option:
@@ -137,16 +137,16 @@ def handle_message(event):
                     else :
                         line_bot_api.reply_message(
                             event.reply_token,[
-                            TextSendMessage(text=lesson['lesson']['description']),
-                            TextSendMessage(text=lesson['lesson']['menu_option']),
+                            TextSendMessage(text=lesson['lesson']['syntax']['description']),
+                            TextSendMessage(text=lesson['lesson']['syntax']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
                 elif 'strings' in option:
                     pass
                 else :
                     line_bot_api.reply_message(
                         event.reply_token,[
-                        TextSendMessage(text=lesson['lesson']['description']),
-                        TextSendMessage(text=lesson['lesson']['menu_option']),
+                        TextSendMessage(text=lesson['description']),
+                        TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
 
