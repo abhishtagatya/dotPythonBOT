@@ -61,9 +61,12 @@ def handle_message(event):
     controll flow below """
 
     # Available commands
-    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key',]
+    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits']
     text = (event.message.text).lower()
     text_argument = text.split()
+
+    # Get User Profile
+    user_profile = line_bot_api.get_profile(event.source.user_id)
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
@@ -144,17 +147,21 @@ def handle_message(event):
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['strings']['str_index']))
                     elif 'operate' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['strings']['str_operate']))
+                        try :
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format(user_profile.display_name,
+                                user_profile.status_message)))
+                        except :
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format("John","happy")))
                     elif 'func' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['strings']['str_func']))
                     elif 'format' in option:
                         try :
-                            # Get User Profile
-                            user_profile = line_bot_api.get_profile(event.source.user_id)
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format(user_profile.display_name)))
@@ -218,6 +225,9 @@ def handle_message(event):
     def key_message():
         pass
 
+    def credits_message():
+        pass
+
     if cmd[0] in text:
         course_message(text_argument)
     elif cmd[1] in text:
@@ -234,6 +244,8 @@ def handle_message(event):
         feedback_message()
     elif cmd[7] in text:
         key_message()
+    elif cmd[7] in text:
+        credits_message()
     else :
         line_bot_api.reply_message(
         event.reply_token,[
