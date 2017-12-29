@@ -152,13 +152,13 @@ def handle_message(event):
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['strings']['str_func']))
                     elif 'format' in option:
-                        if isinstance(event.source, SourcUser):
+                        try :
                             # Get User Profile
                             user_profile = line_bot_api.get_profile(event.source.user_id)
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format(user_profile.display_name)))
-                        else :
+                        except LineBotApi:
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=lesson['lesson']['strings']['str_format_debug']))
