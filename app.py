@@ -67,7 +67,7 @@ def handle_message(event):
 
     # Get User Profile
     user_profile = line_bot_api.get_profile(event.source.user_id)
-    user_name = user_profile.displayName
+    user_name = user_profile.display_name
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
