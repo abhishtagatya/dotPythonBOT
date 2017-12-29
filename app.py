@@ -13,7 +13,6 @@
 #  under the License.
 from __future__ import unicode_literals
 
-
 import os
 import sys
 import json
@@ -101,12 +100,54 @@ def handle_message(event):
                 else :
                     line_bot_api.reply_message(
                         event.reply_token,[
-                        TextSendMessage(text=lesson['lesson']['get_started']),
+                        TextSendMessage(text=lesson['lesson']['description']),
                         TextSendMessage(text=lesson['lesson']['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
         elif 'basic' in option:
-            pass
+
+            with open('src/course/basic_course.json','r') as course_basic:
+                # Opens basic_course.json from src/course
+                lesson = json.load(course_basic)
+                if 'syntax' in option:
+                    if 'var' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['syntax']['variable']))
+                    elif 'bool' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['syntax']['boolean']))
+                    elif 'reassign' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['syntax']['reassign']))
+                    elif 'comment' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['syntax']['comment']))
+                    elif 'operator' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['syntax']['operator']))
+                    elif 'type' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['syntax']['data_type']))
+                    else :
+                        line_bot_api.reply_message(
+                            event.reply_token,[
+                            TextSendMessage(text=lesson['lesson']['description']),
+                            TextSendMessage(text=lesson['lesson']['menu_option']),
+                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+                elif 'strings' in option:
+                    pass
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,[
+                        TextSendMessage(text=lesson['lesson']['description']),
+                        TextSendMessage(text=lesson['lesson']['menu_option']),
+                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
 
         else :
