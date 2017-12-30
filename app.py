@@ -203,7 +203,7 @@ def handle_message(event):
                     elif 'dict' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format('you')))
+                            TextSendMessage(text=lesson['lesson']['data_structure']['dict'])
                     elif 'sets' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
