@@ -192,18 +192,18 @@ def handle_message(event):
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['data_structure']['list']))
                     elif 'tuple' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['data_structure']['tuple']).format('you')))
-                    elif 'dict' in option:
                         try :
                             line_bot_api.reply_message(
                                 event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format(user_profile.display_name)))
+                                TextSendMessage(text=(lesson['lesson']['data_structure']['tuple']).format(user_profile.display_name)))
                         except LineBotApi:
                             line_bot_api.reply_message(
                                 event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format('you')))
+                                TextSendMessage(text=(lesson['lesson']['data_structure']['tuple']).format('you')))
+                    elif 'dict' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format('you')))
                     elif 'sets' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
