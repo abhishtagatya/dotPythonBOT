@@ -16,6 +16,8 @@ from __future__ import unicode_literals
 import os
 import sys
 import json
+import random
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -89,12 +91,6 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        ImageSendMessage(
-                        original_content_url='https://drive.google.com/file/d/12maEqB5OcNlRTIbxQ3-7gk9orJpNg1Wa/view',
-                        preview_image_url='https://drive.google.com/file/d/12maEqB5OcNlRTIbxQ3-7gk9orJpNg1Wa/view')
-                    )
                 elif 'script' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
@@ -158,7 +154,7 @@ def handle_message(event):
                                 event.reply_token,
                                 TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format(user_profile.display_name,
                                 user_profile.status_message)))
-                        except :
+                        except LineBotApi :
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format("John","happy")))
@@ -174,7 +170,7 @@ def handle_message(event):
                         except LineBotApi:
                             line_bot_api.reply_message(
                                 event.reply_token,
-                                TextSendMessage(text=lesson['lesson']['strings']['str_format_debug']))
+                                TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format('He/She')))
                     elif 'input' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -200,9 +196,14 @@ def handle_message(event):
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['data_structure']['tuple']))
                     elif 'dict' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['data_structure']['dict']))
+                        try :
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format(user_profile.display_name)))
+                        except LineBotApi :
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format("you")))
                     elif 'sets' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -218,8 +219,33 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['data_structure']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-                elif 'loops' in option:
-                    pass
+                elif 'loops_cond' in option:
+                    if 'while' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['loops_cond']['while_loop']))
+                    elif 'for' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['loops_cond']['for_loop']))
+                    elif 'if_else' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['loops_cond']['if_else']).format(random.randint(0,9))))
+                    elif 'nested' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['loops_cond']['nested']))
+                    elif 'break_cont' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['loops_cond']['break_cont']))
+                    else :
+                        line_bot_api.reply_message(
+                            event.reply_token,[
+                            TextSendMessage(text=lesson['lesson']['loops_cond']['description']),
+                            TextSendMessage(text=lesson['lesson']['loops_cond']['menu_option']),
+                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
                 else :
                     line_bot_api.reply_message(

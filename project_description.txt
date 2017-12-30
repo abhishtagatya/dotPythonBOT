@@ -15,9 +15,9 @@ Courses : (After Each Course, give homework)
     - Syntax (Variable, Operator, Data Type)
     - String and Console
     - Multi Data Set (List, Tuple, Set, Dict)
-    - Loop
-    - Condition
+    - Loop & Condition
     - Function
+    - Class
   - File Operation :
     - __init__
     - CSV
