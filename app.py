@@ -93,6 +93,12 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['script_lesson']))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        ImageSendMessage(
+                        original_content_url='src/static/img/course_version.jpeg',
+                        preview_image_url='src/static/img/course_version.jpeg')
+                    )
                 elif 'run_program' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
