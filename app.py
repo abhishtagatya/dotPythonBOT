@@ -200,10 +200,10 @@ def handle_message(event):
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format(user_profile.display_name)))
-                        except LineBotApi :
+                        except LineBotApi:
                             line_bot_api.reply_message(
                                 event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format("you")))
+                                TextSendMessage(text=(lesson['lesson']['data_structure']['dict']).format('you')))
                     elif 'sets' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
