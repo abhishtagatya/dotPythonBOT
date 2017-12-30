@@ -89,16 +89,16 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        ImageSendMessage(
+                        original_content_url='https://drive.google.com/file/d/12maEqB5OcNlRTIbxQ3-7gk9orJpNg1Wa/view',
+                        preview_image_url='https://drive.google.com/file/d/12maEqB5OcNlRTIbxQ3-7gk9orJpNg1Wa/view')
+                    )
                 elif 'script' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['script_lesson']))
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        ImageSendMessage(
-                        original_content_url='src/static/img/course_version.jpeg',
-                        preview_image_url='src/static/img/course_version.jpeg')
-                    )
                 elif 'run_program' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
@@ -190,7 +190,35 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['strings']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-                elif 'multi_data' in option:
+                elif 'data_structure' in option:
+                    if 'list' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['data_structure']['list']))
+                    elif 'tuple' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['data_structure']['tuple']))
+                    elif 'dict' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['data_structure']['dict']))
+                    elif 'sets' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['data_structure']['sets']))
+                    elif 'frozensets' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['data_structure']['frozensets']))
+                    else :
+                        line_bot_api.reply_message(
+                            event.reply_token,[
+                            TextSendMessage(text=lesson['lesson']['data_structure']['description']),
+                            TextSendMessage(text=lesson['lesson']['data_structure']['menu_option']),
+                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+                elif 'loops' in option:
                     pass
 
                 else :
