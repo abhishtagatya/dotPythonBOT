@@ -300,8 +300,8 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['function']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-                elif 'class' in option:
-                    pass
+                elif 'classobj' in option:
+                    unavailableMessage('WIP')
 
                 else :
                     line_bot_api.reply_message(
@@ -310,6 +310,8 @@ def handle_message(event):
                         TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
+        elif 'file_ops' in option:
+            pass
 
         else :
             line_bot_api.reply_message(
@@ -343,6 +345,29 @@ def handle_message(event):
 
     def credits_message():
         pass
+
+    def unavailableMessage(condition):
+        ''' Prints Unavailable Messages when somethin goes wrong '''
+        # Keyword : WIP (Work in Progress); NAV (Not Available); BKF (Broken Feature)
+
+        if condition == 'WIP':
+            line_bot_api.reply_message(
+                event.reply_token,[
+                TextSendMessage(text="Sorry but the keyword you are trying to access is currently unavailable."),
+                TextSendMessage(text="Still under construction, please wait for an update \uDBC0\uDC84")])
+        elif condition == 'NAV':
+            line_bot_api.reply_message(
+                event.reply_token,[
+                TextSendMessage(text="Sorry but the keyword you are trying to access is currently unavailable."),
+                TextSendMessage(text="Feature currently unavailable, please wait for a notice \uDBC0\uDC84")])
+        elif condition == 'BKF':
+            line_bot_api.reply_message(
+                event.reply_token,[
+                TextSendMessage(text="Sorry but the keyword you are trying to access is currently unavailable."),
+                TextSendMessage(text="Feature currently broken, please wait for a notice or update \uDBC0\uDC84")])
+        else :
+            pass
+
 
     if cmd[0] in text:
         course_message(text_argument)
