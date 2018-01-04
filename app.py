@@ -60,7 +60,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     """ Handles all received message from user and process it through the
-    controll flow below """
+    controll flow below. Only takes message of type Text"""
 
     # Available commands
     cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits']
@@ -246,6 +246,62 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['loops_cond']['description']),
                             TextSendMessage(text=lesson['lesson']['loops_cond']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+                elif 'def' in option:
+                    if 'declare' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['function']['declare']))
+                    elif 'call' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['function']['call']))
+                    elif 'arg' in option:
+                        try :
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=(lesson['lesson']['function']['argument']).format(user_profile.display_name)))
+                        except LineBotApi :
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=(lesson['lesson']['function']['argument']).format('user')))
+                    elif 'varscope' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['function']['varscope']).format(random.randint(0,9),random.randint(0,9))))
+                    elif 'nested' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['function']['nested']))
+                    elif 'decorator' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=lesson['lesson']['function']['decorator']))
+                    elif 'overload' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['function']['overloading']).format(random.randint(0,9))))
+                    elif 'recursion' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['function']['recursion']).format(random.randint(0,9))))
+                    elif 'generator' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['function']['generator']).format(random.randint(0,9))))
+                    elif 'lambda' in option:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['function']['lambda']).format(random.randint(0,9))))
+                    else :
+                        line_bot_api.reply_message(
+                            event.reply_token,[
+                            TextSendMessage(text=lesson['lesson']['function']['description']),
+                            TextSendMessage(text=lesson['lesson']['function']['menu_option']),
+                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+                elif 'class' in option:
+                    pass
 
                 else :
                     line_bot_api.reply_message(

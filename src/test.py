@@ -1,9 +1,8 @@
-count = 5
+total = 1
 
-while True:
-    if count < 3:
-        break
-    else :
-        print "K"
-        count -= 1
-        continue
+def localVar():
+    def inside():
+        print('Hello')
+
+a = localVar()
+a.inside()
