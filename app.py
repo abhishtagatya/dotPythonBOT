@@ -63,7 +63,7 @@ def handle_message(event):
     controll flow below. Only takes message of type Text"""
 
     # Available commands
-    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits']
+    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits','/social']
     text = (event.message.text).lower()
     text_argument = text.split()
 
@@ -311,23 +311,23 @@ def handle_message(event):
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
         elif 'file_ops' in option:
-            pass
+            unavailableMessage('WIP')
 
         elif 'module' in option:
-            pass
+            unavailableMessage('WIP')
 
         elif 'third_party' in option:
-            pass
+            unavailableMessage('WIP')
 
         elif 'challange' in option:
-            pass
+            unavailableMessage('WIP')
 
         else :
             line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Lets enroll the course!".format(text)),
                 TextSendMessage(
-                text="Choose the course you want to learn : \n 1. Getting Started (get_started) \n 2. Basic (basic) \n 3. File Operation (file_ops) \n 4. Python Standard Module (module) \n 5. Python Third Party Module (third_party) "),
+                text="Choose the course you want to learn : \n 1. Getting Started (get_started) \n 2. Basic (basic) \n 3. File Operation (file_ops) \n 4. Python Standard Module (module) \n 5. Python Third Party Module (third_party) \n 6. Python Challange (challange)"),
                 TextSendMessage(text="To enroll, type : /course (chapter)")])
 
 
@@ -368,31 +368,43 @@ def handle_message(event):
                 line_bot_api.reply_message(
                     event.reply_token,[
                     TextSendMessage(text=question['ask']['description']),
-                    TextSendMessage(text=question['ask']['menu_option'])])
+                    TextSendMessage(text=question['ask']['menu_option']),
+                    TextSendMessage(text="To ask questions, type : /ask (question)")])
 
     def docs_message():
-        pass
+        unavailableMessage('WIP')
 
     def dev_message():
         pass
 
     def group_message():
-        pass
+        unavailableMessage('WIP')
 
     def donate_message():
-        pass
+        unavailableMessage('WIP')
 
     def feedback_message():
         pass
 
     def key_message():
-        pass
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Available Keys :\n + Join Course (/course) \n + Ask Questions (/ask) \n + Python Documentations (/docs) \n + Developer (/dev) \n + Learning Group (/group) \n + Donation (/donate) \n + Feedbacks (/feedback) \n + Source Credits (/credits) \n + Social Media (/social) \n + Show Keys (/key)"))
 
     def credits_message():
+        with open('src/credit/credit.txt','r') as credit_mes:
+            mes = credit_mes.read()
+
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=mes))
+
+
+    def social_message():
         pass
 
     def unavailableMessage(condition):
-        ''' Prints Unavailable Messages when somethin goes wrong '''
+        """ Prints Unavailable Messages when somethin goes wrong """
         # Keyword : WIP (Work in Progress); NAV (Not Available); BKF (Broken Feature)
 
         if condition == 'WIP':
@@ -432,6 +444,8 @@ def handle_message(event):
         key_message()
     elif cmd[7] in text:
         credits_message()
+    elif cmd[8] in text:
+        social_message()
     else :
         line_bot_api.reply_message(
         event.reply_token,[

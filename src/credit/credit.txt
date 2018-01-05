@@ -1,0 +1,37 @@
+CREDITS
+
+Learning Source :
+  Python Programming
+    python.org
+  Python Documentation
+    https://docs.python.org/3/
+  Digital Ocean
+    https://www.digitalocean.com/
+  Tutorials Point
+    https://www.tutorialspoint.com/python/
+  Learn Python
+    https://www.learnpython.org
+  Python for Beginners
+    https://www.pythonforbeginners.com
+  Using Python
+    https://www.usingpython.com
+  Python Course EU
+    https://www.python-course.eu
+  Data Camp
+    https://www.datacamp.com
+  Pro Tech Training
+    https://www.protechtraining.com
+  Real Python
+    https://www.realpython.com
+  Anandology
+    https://www.anandology.com
+  Programiz
+    https://www.programiz.com
+
+Project Source :
+  LINE BOT SDK
+    https://github.com/line/line-bot-sdk-python
+  Heroku
+    https://www.heroku.com/
+  Flask Python
+    flask.pocoo.org/

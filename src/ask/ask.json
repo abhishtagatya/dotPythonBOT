@@ -1,6 +1,6 @@
 {
   "ask" : {
-    "menu_option" : "Available Options :\n + Frequently Asked Questions (faq) \n + Course Questions (course) \n + dotPython Version (version) \n + Short Links (link) \n + Promote your content (promote) \n + About (about) \n + Python Questions (python)",
+    "menu_option" : "Available Questions :\n + Frequently Asked Questions (faq) \n + Course Questions (course) \n + dotPython Version (version) \n + Short Links (link) \n + Promote your content (promote) \n + About (about) \n + Python Questions (python)",
     "description" : "ASK\n\nAsk us about anything related to dotLearn and Python Programming language. Make sure to check out the FAQ first before asking the question to make efficient and effectiveness of answers given. If you have others questions to ask, contact us over 'email@placeholder.com'. Have fun on your learning journey!",
     "FAQ" : "FAQ\n\nWhat is dotLearn?\n\ndotLearn is a learning platform in the form of digital media such as websites, video tutorials and online mentoring.\n\nWhat is dotPython?\n\ndotPython is another media of dotLearn created to teach Python programming language to create apps and programs.\n\nWhat other media is available by dotLearn?\n\nSince dotLearn was established recently at January, 2018. Created by a small team, updates and resources are still limited, thus contributions by people such as donations and feedbacks means a lot to us.\n\nWhat are dotLearn's Missions and Visions?\n\nWe vision that dotLearn could live up to its motto, to learn everything everywhere on the go. dotLearn acts as a media to encourage mentors and experts to get their contents noticed by the masses.\n\nHow do I contribute to dotLearn?\n\nDonation is one thing, but supporting by giving feedbacks and comments is another. We endulge you to create learning media (video, article, websites, etc) as well so that dotLearn has more contents and recognition in the world of online learning.",
     "promote" : "PROMOTE\n\ndotLearn is more than happy to promote your contents, as long as it helps people learn more about Python Programming Language. Send it over 'email@placeholder.com' with a title of '[PROMOTE] TITLE - SENDER' and your content will be promoted in about 24 hours after the email is sent.",
@@ -11,3 +11,15 @@
     "python" : "PYTHON\n\nTo ask a python related questions, send it over 'email@placeholder.com' with the title '[PYTHONQ] TITLE - SENDER', replies are a bit slow at the moment so please be patient."
   }
 }
+
+Available Keys :
+ + Join Course (/course)
+ + Ask Questions (/ask)
+ + Python Documentations (/docs)
+ + Developer (/dev)
+ + Learning Group (/group)
+ + Donation (/donate)
+ + Feedbacks (/feedback)
+ + Source Credits (/credits)
+ + Social Media (/social)
+ + Show keys (/key)
