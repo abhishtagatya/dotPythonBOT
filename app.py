@@ -378,7 +378,13 @@ def handle_message(event):
         pass
 
     def group_message():
-        unavailableMessage('WIP')
+        with open('src/group/group.txt','r') as group_mes:
+            mes = group_mes.read()
+
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=mes))
+
 
     def donate_message():
         unavailableMessage('WIP')
@@ -401,7 +407,7 @@ def handle_message(event):
 
 
     def social_message():
-        pass
+        unavailableMessage('WIP')
 
     def unavailableMessage(condition):
         """ Prints Unavailable Messages when somethin goes wrong """
