@@ -313,6 +313,15 @@ def handle_message(event):
         elif 'file_ops' in option:
             pass
 
+        elif 'module' in option:
+            pass
+
+        elif 'third_party' in option:
+            pass
+
+        elif 'challange' in option:
+            pass
+
         else :
             line_bot_api.reply_message(
                 event.reply_token,[
@@ -322,8 +331,44 @@ def handle_message(event):
                 TextSendMessage(text="To enroll, type : /course (chapter)")])
 
 
-    def ask_message():
-        pass
+    def ask_message(option=[]):
+        """ Enter to ask questions about Python programming and FAQ """
+
+        with open('src/ask/ask.json','r') as ask_file:
+            question = json.load(ask_file)
+            if 'faq' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=question['ask']['FAQ']))
+            elif 'promote' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=question['ask']['promote']))
+            elif 'course' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=question['ask']['course']))
+            elif 'version' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=(question['ask']['version']).format(version)))
+            elif 'link' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=question['ask']['link']))
+            elif 'about' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=question['ask']['about']))
+            elif 'python' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=question['ask']['python']))
+            else :
+                line_bot_api.reply_message(
+                    event.reply_token,[
+                    TextSendMessage(text=question['ask']['description']),
+                    TextSendMessage(text=question['ask']['menu_option'])])
 
     def docs_message():
         pass
@@ -372,7 +417,7 @@ def handle_message(event):
     if cmd[0] in text:
         course_message(text_argument)
     elif cmd[1] in text:
-        ask_message()
+        ask_message(text_argument)
     elif cmd[2] in text:
         docs_message()
     elif cmd[3] in text:

@@ -31,7 +31,9 @@ Courses : (After Each Course, give homework)
 
 
 Ask :
+  - FAQ (What/why/Vision/Mission/Contribute)
   - Version [print(current version)]
+  - Links
   - About
   - Guide
   - Python [send to e-mail]
