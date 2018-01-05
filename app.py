@@ -442,9 +442,9 @@ def handle_message(event):
         feedback_message()
     elif cmd[7] in text:
         key_message()
-    elif cmd[7] in text:
-        credits_message()
     elif cmd[8] in text:
+        credits_message()
+    elif cmd[9] in text:
         social_message()
     else :
         line_bot_api.reply_message(

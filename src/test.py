@@ -1,8 +1,4 @@
-total = 1
-
-def localVar():
-    def inside():
-        print('Hello')
-
-a = localVar()
-a.inside()
+f = open('src/credit/credit.txt','r')
+ms = f.read()
+print(ms)
+f.close()
