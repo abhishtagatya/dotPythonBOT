@@ -319,7 +319,7 @@ def handle_message(event):
         elif 'third_party' in option:
             unavailableMessage('WIP')
 
-        elif 'challange' in option:
+        elif 'challenge' in option:
             unavailableMessage('WIP')
 
         else :
@@ -327,7 +327,7 @@ def handle_message(event):
                 event.reply_token,[
                 TextSendMessage(text="Lets enroll the course!".format(text)),
                 TextSendMessage(
-                text="Choose the course you want to learn : \n 1. Getting Started (get_started) \n 2. Basic (basic) \n 3. File Operation (file_ops) \n 4. Python Standard Module (module) \n 5. Python Third Party Module (third_party) \n 6. Python Challange (challange)"),
+                text="Choose the course you want to learn : \n 1. Getting Started (get_started) \n 2. Basic (basic) \n 3. File Operation (file_ops) \n 4. Python Standard Module (module) \n 5. Python Third Party Module (third_party) \n 6. Python Challange (challenge)"),
                 TextSendMessage(text="To enroll, type : /course (chapter)")])
 
 
