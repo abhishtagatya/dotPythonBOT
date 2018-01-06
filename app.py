@@ -34,7 +34,7 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
-version = '0.1 ALPHA BUILD'
+version = 'v0.9 RELEASE'
 
 line_bot_api = LineBotApi('z0g2r0/7tVh6rEYEMA/Utv6G5d9y3LEtpgRdLHUSrSQOAfl7iQCwtaZ/TEEVAxE6DKLtOShFdloBJv9pU/RFw87WfvmwT/aW5rNLttga0N8fOjSmET3QWgozNt35VnDK4+faM2ACvG2fqpr5vIB88QdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('ee6ad8acedc43c85b4a0a277807d5df5')
@@ -356,6 +356,10 @@ def handle_message(event):
                 line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(text=question['ask']['link']))
+            elif 'group' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=question['ask']['group']))
             elif 'about' in option:
                 line_bot_api.reply_message(
                     event.reply_token,
@@ -375,7 +379,9 @@ def handle_message(event):
         unavailableMessage('WIP')
 
     def dev_message():
-        pass
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="dotPython was created by Abhishta Gatya, 2018"))
 
     def group_message():
         with open('src/group/group.txt','r') as group_mes:
@@ -390,7 +396,9 @@ def handle_message(event):
         unavailableMessage('WIP')
 
     def feedback_message():
-        pass
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="If you have any feedbacks or complaints about dotPython chatbot, please send it over 'saveitcomm@yahoo.com' with the title '[FEEDBACK] TITLE - SENDER'"))
 
     def key_message():
         line_bot_api.reply_message(
