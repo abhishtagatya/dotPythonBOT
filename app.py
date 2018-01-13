@@ -337,7 +337,7 @@ def handle_message(event):
 
         elif 'chal' in option:
             # Challenge key : 'chal'
-            if 'bsc' in option:
+            if 'basic' in option:
                 # Basic key : 'bsc'
                 with open('src/course/basic_challenge.json','r') as basic_challenge:
                     challenge = json.load(basic_challenge)
@@ -375,18 +375,18 @@ def handle_message(event):
                             TextSendMessage(text=challenge['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (challenge)")])
 
-            elif 'fo' in option:
+            elif 'fileop' in option:
                 unavailableMessage('WIP')
-            elif 'psm' in option:
+            elif 'psmod' in option:
                 unavailableMessage('WIP')
-            elif 'ptpm' in option:
+            elif 'ptpmod' in option:
                 unavailableMessage('WIP')
             else:
                 line_bot_api.reply_message(
                     event.reply_token,[
                     TextSendMessage(text="Lets start the challenge!"),
                     TextSendMessage(
-                    text="Choose the course you want to challenge : \n 1. Basic (bsc) \n 2. File Operation (fo) \n 3. Python Standard Module (psm) \n 4. Python Third Party Module (ptpm)"),
+                    text="Choose the course you want to challenge : \n 1. Basic (basic) \n 2. File Operation (fileop) \n 3. Python Standard Module (psmod) \n 4. Python Third Party Module (ptpmod)"),
                     TextSendMessage(text="To enroll, type : /course (chapter) (challenge)")])
 
 
