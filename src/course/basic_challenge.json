@@ -1,0 +1,29 @@
+{
+  "challenge" : {
+    "syntax" : {
+      "radius" : "RADIUS\n\nCreate a program that calculates the Radius of a circle using the formula 'A = πr²' where pi is equal to 3.14 and the Area is equal to 37. The answer must be in intergers, not floats.",
+      "imag_real" : "IMAGINARY AND REAL\n\nIn the Python Interpreter's Interactive mode, create two variables with '(0.4+8j)' and '(1.4j+0.3)' as the value. After that create another variable with first and second value divided. Once then, using python's built-in function, print out the real and imaginary numbers each.",
+      "hex_operate" : "OPERATING HEXADECIMAL\n\nIn the Python Interpreter's Interactive mode, follow these instructions. A is equal to '0x12', B is equal 'A² + 0x31' and C is equal to '0x02*(B/A)'. Sum them up and divide them by 3, the answer must be in hexadecimal value."
+    },
+    "strings" : {
+      "story_time" : "STORY TIME\n\nCreate a program that prints a short story (it can be anything you want) but the characters, places, monsters and all other details must be inputted by the user, Once then print the entire string and see the story in action.",
+      "word_count" : "WORD COUNT\n\nCreate a program that outputs a the length of a string inputted by the user, the program must atleast take 5 inputs and then the total length of the inputs must be summed up as the end result.",
+      "substring_check" : "SUBSTRING CHECK\n\nCreate a string long enough (min.10 characters) can be random or not, then create it so that a user can input a string and if the inputted string is in the string you created then print 'True' otherwise print 'False'",
+      "form_print" : "FORM\n\nCreate a program that prints the users data in a formatted string by describing the person, the data is inputted by the user of the program (name, age, location, gender, education, etc)."
+    },
+    "data_structure" : {
+
+    },
+    "loops_cond" : {
+
+    },
+    "function" : {
+
+    },
+    "classobj" : {
+
+    },
+    "description" : "BASIC CHALLENGE\n\nIn this course, you will be tested of your skills and programming knowledge all around python, mainly in basic course. The challenge is created to learn and communicate about python programming and how to solve these problems. The challenges are picked random and updated once a week, so good luck on your trials!",
+    "menu_option" : "Choose the challenge lessons : \n + Syntax (syn) \n + Strings and Console (str) \n + Data structure (dts) \n + Loops and Condition (loc) \n + Function (def) \n + Class and Objects (cls) "
+  }
+}

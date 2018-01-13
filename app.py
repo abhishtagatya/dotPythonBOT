@@ -34,7 +34,7 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
-version = 'v0.9 RELEASE'
+version = 'v0.94 RELEASE'
 
 line_bot_api = LineBotApi('z0g2r0/7tVh6rEYEMA/Utv6G5d9y3LEtpgRdLHUSrSQOAfl7iQCwtaZ/TEEVAxE6DKLtOShFdloBJv9pU/RFw87WfvmwT/aW5rNLttga0N8fOjSmET3QWgozNt35VnDK4+faM2ACvG2fqpr5vIB88QdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('ee6ad8acedc43c85b4a0a277807d5df5')
@@ -63,6 +63,7 @@ def handle_message(event):
     controll flow below. Only takes message of type Text"""
 
     # Available commands
+    # Command = course / ask / docs / dev / group / donate / feedback / key / social
     cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits','/social']
     text = (event.message.text).lower()
     text_argument = text.split()
@@ -72,7 +73,8 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-        if 'get_started' in option:
+        if 'gs' in option:
+            # Get started key : 'gs'
 
             with open('src/course/getting_started.json','r') as course_getting_started:
                 # Opens the src/course/getting started and reading it!
@@ -80,6 +82,7 @@ def handle_message(event):
 
                 # Below is the Controll flow for the statement 'getting started'
                 if 'intro' in option:
+                    # Introduction Keyword
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['introduction_lesson']))
@@ -91,11 +94,15 @@ def handle_message(event):
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['version_lesson']))
+                elif 'inter' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['interpreter_lesson']))
                 elif 'script' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['script_lesson']))
-                elif 'run_program' in option:
+                elif 'run' in option:
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=lesson['lesson']['pyrun_lesson']))
@@ -106,12 +113,13 @@ def handle_message(event):
                         TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
-        elif 'basic' in option:
-
+        elif 'bsc' in option:
+            # Basic key : 'bsc'
             with open('src/course/basic_course.json','r') as course_basic:
                 # Opens basic_course.json from src/course
                 lesson = json.load(course_basic)
-                if 'syntax' in option:
+                if 'syn' in option:
+                    # Syntax key : 'syn'
                     if 'var' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -143,7 +151,8 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['syntax']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-                elif 'strings' in option:
+                elif 'str' in option:
+                    # Strings key : 'str'
                     if 'index' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -186,7 +195,8 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['strings']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-                elif 'data_structure' in option:
+                elif 'dts' in option:
+                    # Data structure key : 'dts'
                     if 'list' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -208,7 +218,7 @@ def handle_message(event):
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['data_structure']['sets']))
-                    elif 'frozensets' in option:
+                    elif 'fsets' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['data_structure']['frozensets']))
@@ -219,7 +229,8 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['data_structure']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-                elif 'loops_cond' in option:
+                elif 'loc' in option:
+                    # Loops and Condition key : 'loc'
                     if 'while' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -236,7 +247,7 @@ def handle_message(event):
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['loops_cond']['nested']))
-                    elif 'break_cont' in option:
+                    elif 'bnc' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
                             TextSendMessage(text=lesson['lesson']['loops_cond']['break_cont']))
@@ -248,6 +259,7 @@ def handle_message(event):
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
                 elif 'def' in option:
+                    # Function key : 'def'
                     if 'declare' in option:
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -300,7 +312,8 @@ def handle_message(event):
                             TextSendMessage(text=lesson['lesson']['function']['menu_option']),
                             TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-                elif 'classobj' in option:
+                elif 'cls' in option:
+                    # Class objects key : 'cls'
                     unavailableMessage('WIP')
 
                 else :
@@ -310,24 +323,79 @@ def handle_message(event):
                         TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-        elif 'file_ops' in option:
+        elif 'fo' in option:
+            # File operation key : 'fo'
             unavailableMessage('WIP')
 
-        elif 'module' in option:
+        elif 'psm' in option:
+            # Python standard module key : 'psm'
             unavailableMessage('WIP')
 
-        elif 'third_party' in option:
+        elif 'ptpm' in option:
+            # Third Party key : 'ptpm'
             unavailableMessage('WIP')
 
-        elif 'challenge' in option:
-            unavailableMessage('WIP')
+        elif 'chal' in option:
+            # Challenge key : 'chal'
+            if 'bsc' in option:
+                # Basic key : 'bsc'
+                with open('src/course/basic_challenge.json','r') as basic_challenge:
+                    challenge = json.load(basic_challenge)
+
+                    # The code below chooses a random key to be printed out as text from the JSON file
+
+                    if 'syn' in option:
+                        chal_syn = challenge['challenge']['syntax']
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=chal_syn[random.choice(chal_syn.keys())]))
+
+                    elif 'str' in option:
+                        chal_str = challenge['challenge']['strings']
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=chal_str[random.choice(chal_str.keys())]))
+
+                    elif 'dts' in option:
+                        unavailableMessage('WIP')
+
+                    elif 'loc' in option:
+                        unavailableMessage('WIP')
+
+                    elif 'def' in option:
+                        unavailableMessage('WIP')
+
+                    elif 'cls' in option:
+                        unavailableMessage('WIP')
+
+                    else :
+                        line_bot_api.reply_message(
+                            event.reply_token,[
+                            TextSendMessage(text=challenge['description']),
+                            TextSendMessage(text=challenge['menu_option']),
+                            TextSendMessage(text="To enroll, type : /course (chapter) (challenge)")])
+
+            elif 'fo' in option:
+                unavailableMessage('WIP')
+            elif 'psm' in option:
+                unavailableMessage('WIP')
+            elif 'ptpm' in option:
+                unavailableMessage('WIP')
+            else:
+                line_bot_api.reply_message(
+                    event.reply_token,[
+                    TextSendMessage(text="Lets start the challenge!"),
+                    TextSendMessage(
+                    text="Choose the course you want to challenge : \n 1. Basic (bsc) \n 2. File Operation (fo) \n 3. Python Standard Module (psm) \n 4. Python Third Party Module (ptpm)"),
+                    TextSendMessage(text="To enroll, type : /course (chapter) (challenge)")])
+
 
         else :
             line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Lets enroll the course!".format(text)),
                 TextSendMessage(
-                text="Choose the course you want to learn : \n 1. Getting Started (get_started) \n 2. Basic (basic) \n 3. File Operation (file_ops) \n 4. Python Standard Module (module) \n 5. Python Third Party Module (third_party) \n 6. Python Challange (challenge)"),
+                text="Choose the course you want to learn : \n 1. Getting Started (gs) \n 2. Basic (bsc) \n 3. File Operation (fo) \n 4. Python Standard Module (psm) \n 5. Python Third Party Module (ptpm) \n 6. Python Challange (chal)"),
                 TextSendMessage(text="To enroll, type : /course (chapter)")])
 
 
@@ -381,7 +449,7 @@ def handle_message(event):
     def dev_message():
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="dotPython was created by Abhishta Gatya, 2018"))
+            TextSendMessage(text="dotPython was created by Abhishta Gatya, 2018\n\nabhishtagatya.onuniverse.com"))
 
     def group_message():
         with open('src/group/group.txt','r') as group_mes:
