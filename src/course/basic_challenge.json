@@ -22,8 +22,8 @@
     },
     "classobj" : {
 
-    },
-    "description" : "BASIC CHALLENGE\n\nIn this course, you will be tested of your skills and programming knowledge all around python, mainly in basic course. The challenge is created to learn and communicate about python programming and how to solve these problems. The challenges are picked random and updated once a week, so good luck on your trials!",
-    "menu_option" : "Choose the challenge lessons : \n + Syntax (syn) \n + Strings and Console (str) \n + Data structure (dts) \n + Loops and Condition (loc) \n + Function (def) \n + Class and Objects (cls) "
-  }
+    }
+  },
+  "description" : "BASIC CHALLENGE\n\nIn this course, you will be tested of your skills and programming knowledge all around python, mainly in basic course. The challenge is created to learn and communicate about python programming and how to solve these problems. The challenges are picked random and updated once a week, so good luck on your trials!",
+  "menu_option" : "Choose the challenge lessons : \n + Syntax (syn) \n + Strings and Console (str) \n + Data structure (dts) \n + Loops and Condition (loc) \n + Function (def) \n + Class and Objects (cls) "
 }
