@@ -348,7 +348,7 @@ def handle_message(event):
                         chal_syn = list(random.choice(challenge['challenge']['syntax'].keys()))
                         line_bot_api.reply_message(
                             event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['syntax'][chal_syn]))
+                            TextSendMessage(text=chal_syn))
 
                     elif 'str' in option:
                         chal_str = list(random.choice(challenge['challenge']['strings'].keys()))
