@@ -52,6 +52,7 @@ Donate : /donate -> PayPal, KickStarter, etc.
 Feedback : /feedback -> send feedback to 'dotLearn@dotLearn.com'
 
 Update Friday, 12 January 2018 :
+(LOG : FIX CHAL KEYWORD)
   + Shorten Keywords <c>
   + Link in my onuniverse website <c>
   + Create a dotLearn Account (Instagram and LINE) and link it in /Social
