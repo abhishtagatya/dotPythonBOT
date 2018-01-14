@@ -345,14 +345,16 @@ def handle_message(event):
                     # The code below chooses a random key to be printed out as text from the JSON file
 
                     if 'syn' in option:
+                        chal_syn = list(random.choice(challenge['challenge']['syntax'].keys()))
                         line_bot_api.reply_message(
                             event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['syntax'][random.choice(challenge['challenge']['syntax'].keys())]))
+                            TextSendMessage(text=challenge['challenge']['syntax'][chal_syn]))
 
                     elif 'str' in option:
+                        chal_str = list(random.choice(challenge['challenge']['strings'].keys()))
                         line_bot_api.reply_message(
                             event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['strings'][random.choice(challenge['challenge']['strings'].keys())]))
+                            TextSendMessage(text=challenge['challenge']['strings'][chal_str]))
 
                     elif 'dts' in option:
                         unavailableMessage('WIP')
