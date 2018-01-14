@@ -1,15 +1,22 @@
 {
   "challenge" : {
     "syntax" : {
-      "radius" : "RADIUS\n\nCreate a program that calculates the Radius of a circle using the formula 'A = πr²' where pi is equal to 3.14 and the Area is equal to 37. The answer must be in intergers, not floats.",
+      "radius" : "RADIUS\n\nCreate a program that calculates the Radius of a circle using the formula 'A = πr²' where pi is equal to 3.14 and the Area is equal to 37m. The answer must be in intergers, not floats.",
       "imag_real" : "IMAGINARY AND REAL\n\nIn the Python Interpreter's Interactive mode, create two variables with '(0.4+8j)' and '(1.4j+0.3)' as the value. After that create another variable with first and second value divided. Once then, using python's built-in function, print out the real and imaginary numbers each.",
-      "hex_operate" : "OPERATING HEXADECIMAL\n\nIn the Python Interpreter's Interactive mode, follow these instructions. A is equal to '0x12', B is equal 'A² + 0x31' and C is equal to '0x02*(B/A)'. Sum them up and divide them by 3, the answer must be in hexadecimal value."
+      "hex_operate" : "OPERATING HEXADECIMAL\n\nIn the Python Interpreter's Interactive mode, follow these instructions. A is equal to '0x12', B is equal 'A² + 0x31' and C is equal to '0x02*(B/A)'. Sum them up and divide them by 3, the answer must be in hexadecimal value.",
+      "square_cl" : "SQUARE CUBES LAW\n\nCreate a program that calculates the area and volume of a cube with the length of 25cm long. Then the cube grows twice its original size. Calculate both areas and volumes and print it out.",
+      "volume_cone" : "CONE SHAPED\n\nCreate a program that calculates the volume and surface area of a cone where pi is 3.14, radius of 12m and the height of 16m. Once you get the value of the two, divide sum them up and print it out.",
+      "pythagoras" : "PYTHAGORAS\n\nCreate a program that calculates the Pythagoras Theorem using the formula a² + b² = c². The program must be reversible, meaning that it can calculate a, b, and c all together. The values of a, b and c are up to the user.",
+      "statistic_mean" : "STATISTIC MEAN\n\nCreate a program that finds the mean (average) of a given data. The data is up to you, but atleast 20 numbers long.",
+      "meter_conversion" : "METER CONVERSION\n\nCreate a program that converts from kilometers(km) to milimeters(mm). You can start from anywhere you want but must fit all the ladders. The value of the starting point is up to you but the rest cannot be hard coded and when the starting value changes, the others changes as well."
     },
     "strings" : {
       "story_time" : "STORY TIME\n\nCreate a program that prints a short story (it can be anything you want) but the characters, places, monsters and all other details must be inputted by the user, Once then print the entire string and see the story in action.",
       "word_count" : "WORD COUNT\n\nCreate a program that outputs a the length of a string inputted by the user, the program must atleast take 5 inputs and then the total length of the inputs must be summed up as the end result.",
       "substring_check" : "SUBSTRING CHECK\n\nCreate a string long enough (min.10 characters) can be random or not, then create it so that a user can input a string and if the inputted string is in the string you created then print 'True' otherwise print 'False'",
-      "form_print" : "FORM\n\nCreate a program that prints the users data in a formatted string by describing the person, the data is inputted by the user of the program (name, age, location, gender, education, etc)."
+      "form_print" : "FORM\n\nCreate a program that prints the users data in a formatted string by describing the person, the data is inputted by the user of the program (name, age, location, gender, education, etc).",
+      "ordering_food" : "ORDERING FOOD\n\nCreate a program that takes the menu of a user and then displays it. The program must be interactive, as if you were talking to a person.",
+      "sphere_calc" : "SPHERE CALCULATOR\n\nCreate a program that calculates the volume and surface area of a sphere, where pi is 3.14 and the rest is inputted by the user. The output must be a formatted string with the results."
     },
     "data_structure" : {
 
