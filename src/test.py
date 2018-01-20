@@ -1,6 +1,3 @@
-import random
-import json
+import sys
 
-with open('src/course/basic_challenge.json','r') as coord:
-    gv = json.load(coord)
-    print
+print 'Hello %s' %(sys.argv[1])

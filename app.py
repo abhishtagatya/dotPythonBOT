@@ -34,7 +34,7 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
-version = 'v0.95 RELEASE'
+version = 'v0.97 RELEASE'
 
 line_bot_api = LineBotApi('z0g2r0/7tVh6rEYEMA/Utv6G5d9y3LEtpgRdLHUSrSQOAfl7iQCwtaZ/TEEVAxE6DKLtOShFdloBJv9pU/RFw87WfvmwT/aW5rNLttga0N8fOjSmET3QWgozNt35VnDK4+faM2ACvG2fqpr5vIB88QdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('ee6ad8acedc43c85b4a0a277807d5df5')
@@ -325,7 +325,57 @@ def handle_message(event):
 
         elif 'fo' in option:
             # File operation key : 'fo'
-            unavailableMessage('WIP')
+
+            with open('src/course/fileops_course.json','r') as course_fileop:
+                # Opens the src/course/fileops course and reading it!
+                lesson = json.load(course_fileop)
+
+                # Below is the Controll flow for the statement 'file operation'
+                if 'open' in option:
+                    # Introduction Keyword
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['opening_file']))
+                elif 'read' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['reading_file']))
+                elif 'write' in option:
+                    try :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['writing_file']).format(user_profile.display_name)))
+                    except :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['writing_file']).format('dotPython')))
+                elif 'clarg' in option:
+                    try :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['cl_arg']).format(user_profile.display_name)))
+                    except :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['cl_arg']).format('dotPython')))
+                elif 'fys' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['file_system']))
+                elif 'csv' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['csv_file']))
+                elif 'json' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['json_file']))
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,[
+                        TextSendMessage(text=lesson['description']),
+                        TextSendMessage(text=lesson['menu_option']),
+                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
         elif 'psm' in option:
             # Python standard module key : 'psm'

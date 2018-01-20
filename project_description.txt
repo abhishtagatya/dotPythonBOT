@@ -51,10 +51,8 @@ Donate : /donate -> PayPal, KickStarter, etc.
 
 Feedback : /feedback -> send feedback to 'dotLearn@dotLearn.com'
 
-Update Friday, 12 January 2018 :
-(LOG : FIX CHAL KEYWORD)
-  + Shorten Keywords <c>
-  + Link in my onuniverse website <c>
-  + Create a dotLearn Account (Instagram and LINE) and link it in /Social
-  + Add contents (Challenge) <c>
-  + Rich menu update <c>
+Update Friday, 19 January 2018 :
+  + Create a dotLearn OA and Instagram
+  + Add Content (File Ops and challenge)
+  + Post a weekly tip!
+  + Add Content (NEW!) /new
