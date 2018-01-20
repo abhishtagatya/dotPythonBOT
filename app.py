@@ -64,7 +64,7 @@ def handle_message(event):
 
     # Available commands
     # Command = course / ask / docs / dev / group / donate / feedback / key / social
-    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits','/social']
+    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits','/social','/new']
     text = (event.message.text).lower()
     text_argument = text.split()
 
@@ -407,7 +407,10 @@ def handle_message(event):
                             TextSendMessage(text=challenge['challenge']['strings'][chal_str]))
 
                     elif 'dts' in option:
-                        unavailableMessage('WIP')
+                        chal_dts = random.choice(list(challenge['challenge']['data_structure'].keys()))
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=challenge['challenge']['data_structure'][chal_dts]))
 
                     elif 'loc' in option:
                         unavailableMessage('WIP')
@@ -534,6 +537,10 @@ def handle_message(event):
     def social_message():
         unavailableMessage('WIP')
 
+    def new_message():
+        """ Sends a secret message weekly!"""
+        unavailableMessage('WIP')
+
     def unavailableMessage(condition):
         """ Prints Unavailable Messages when somethin goes wrong """
         # Keyword : WIP (Work in Progress); NAV (Not Available); BKF (Broken Feature)
@@ -577,6 +584,8 @@ def handle_message(event):
         credits_message()
     elif cmd[9] in text:
         social_message()
+    elif cmd[10] in text:
+        new_message()
     else :
         line_bot_api.reply_message(
         event.reply_token,[

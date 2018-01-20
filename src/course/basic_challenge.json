@@ -16,10 +16,15 @@
       "substring_check" : "SUBSTRING CHECK\n\nCreate a string long enough (min.10 characters) can be random or not, then create it so that a user can input a string and if the inputted string is in the string you created then print 'True' otherwise print 'False'",
       "form_print" : "FORM\n\nCreate a program that prints the users data in a formatted string by describing the person, the data is inputted by the user of the program (name, age, location, gender, education, etc).",
       "ordering_food" : "ORDERING FOOD\n\nCreate a program that takes the menu of a user and then displays it. The program must be interactive, as if you were talking to a person.",
-      "sphere_calc" : "SPHERE CALCULATOR\n\nCreate a program that calculates the volume and surface area of a sphere, where pi is 3.14 and the rest is inputted by the user. The output must be a formatted string with the results."
+      "sphere_calc" : "SPHERE CALCULATOR\n\nCreate a program that calculates the volume and surface area of a sphere, where pi is 3.14 and the rest is inputted by the user. The output must be a formatted string with the results.",
+      "term_calc" : "TERMINAL CALCULATOR\n\nCreate a program that calculates the users input, using a function that evaluates a string and then processing it as a command. Hint : No conditions are needed to make this work."
     },
     "data_structure" : {
-
+      "shopping_list" : "SHOPPING LIST\n\nCreate a program that stores a few items to a list by the users input. Once that is done, print it out alphabetically.",
+      "student_profile" : "STUDENT PROFILE\n\nCreate a program that stores a list containing a list that stores the name, age, majors and nationality. Input atleast 5 students to the list, and print each list by using index.",
+      "list_average" : "LIST AVERAGE\n\nCreate a program that stores a list with the items being numbers (min. 10 items) and then find the average of the list item.",
+      "eng_dict" : "ENGLISH DICTIONARY\n\nCreate a program that can translate a word from english to your mother tounge (language you grow up with) using the features of dictionaries keys and values. The user can input a word and then the output would be the translated word.",
+      "nation_info" : "NATION CAPITAL\n\nCreate a program that can output the informations of the nation by inputting the nation using the features of dictionaries keys and values. The information must be tuple containing capital city, currency, language and president."
     },
     "loops_cond" : {
 
