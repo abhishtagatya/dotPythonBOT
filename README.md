@@ -16,7 +16,7 @@ If you believe what we believe then go ahead and add dotPython using this QR COD
 
 Or click here to add the bot using links!
 
-[add-friend](https://line.me/R/ti/p/%40rta7839x)
+[![add-friend](https://scdn.line-apps.com/n/line_add_friends/btn/en.png)](https://line.me/R/ti/p/%40rta7839x)
 
 ## Things to do
 #### Date : Friday, 26 January 2018
