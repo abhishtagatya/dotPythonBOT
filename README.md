@@ -14,6 +14,19 @@ If you believe what we believe then go ahead and add dotPython using this QR COD
 
 ![bot-qrcode](docs/img/qrcode.png)
 
+Or click here to add the bot using links!
+
+![add-friend](https://scdn.line-apps.com/n/line_add_friends/btn/en.png)(https://line.me/R/ti/p/%40rta7839x)
+
+## Things to do
+#### Date : Friday, 26 January 2018
+- [x] Finish Get Started Course
+- [] Finish Basic Course
+- [x] Finish File Operation Course
+- [] Finish Python Standard Module Course
+- [] Finish Python Third Party Module Course
+- [] Finish dotPython Challenge
+
 ## Contributing
 
 dotPython accepts contribution in forms of knowledge and informations all around the world of Python programming.
