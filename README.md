@@ -2,7 +2,7 @@
 
 Python Chat Course using LINE Messenger Bot API
 
-![bot-preview](docs/img/botDisplay.jpg)
+![bot-preview](docs/img/botDisplay.jpg =258x150)
 
 ## Introduction
 
@@ -24,7 +24,7 @@ Feel free to give feedbacks over at 'saveitcomm@yahoo.com'
 
 ## Authors
 
-* **Abhishta Gatya** - *Aga* - [abhishtagatya](https://github.com/abhishtagatya)
+* **Abhishta Gatya** - *Founder* - [abhishtagatya](https://github.com/abhishtagatya)
 
 ## License
 
