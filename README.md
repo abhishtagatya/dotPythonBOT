@@ -2,7 +2,7 @@
 
 Python Chat Course using LINE Messenger Bot API
 
-![bot-preview](docs/img/botDisplay.jpg =258x150)
+![bot-preview](docs/img/botDisplay.jpg)
 
 ## Introduction
 
