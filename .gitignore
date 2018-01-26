@@ -4,5 +4,6 @@ instance/
 
 # Secret Files and Folder
 donate/*
+test/*
 test.*
 project_description.txt
