@@ -41,7 +41,7 @@
       "odd_even" : "ODD EVEN\n\nCreate a program that checks if the number is ood or even from the range of 0 to 100. Then print out all the numbers with '[Number] is [State]' where state is either odd or even.",
       "grading" : "GRADING\n\nCreate a program that takes a user input (min. 10 inputs) from 0 to 100, and then grade it as alphabets from F to A+.\n\nF is 0 to 20, E is 21 to 40, D is 41 to 60, C is 61 to 75, B is 76 to 85, A is 86 to 99 and A+ is 100.",
       "login_message" : "LOGIN MESSAGE\n\nCreate a program that enables a user to login using input, the password is stored indise a dict as the key and the message is the value of the key. If the password is correct, then print the message. The user has 3 tries to input the password correctly, if it exceeds the limit, then exit out the program.",
-      "vocal_letter" : "VOCAL LETTER\n\nCreate a program that counts vocal letters in a string (min. 100 characters). Then print out the percentage of characters that are vocal inside the string.\n\nExample : vc/n\n\nWhere 'vc' is vocal count and 'n' is the length of the string.",
+      "vocal_letter" : "VOCAL LETTER\n\nCreate a program that counts vocal letters in a string (min. 100 characters). Then print out the percentage of characters that are vocal inside the string.\n\nExample : vc/n\n\nWhere 'vc' is vocal count and 'n' is the length of the string."
     },
     "function" : {
 
