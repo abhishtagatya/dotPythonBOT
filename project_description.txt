@@ -60,8 +60,4 @@ Donate : /donate -> PayPal, KickStarter, etc.
 
 Feedback : /feedback -> send feedback to 'dotLearn@dotLearn.com'
 
-UPDATE LOG : Friday, 26 January 2018
-  + Add Contents to src/*
-  + Create a push message daily
-  + Fix bugs and improve bot performance
-  + Fix misspell and correct
+ALWAYS READ THIS BEFORE CODING!!!!

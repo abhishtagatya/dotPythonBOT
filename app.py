@@ -413,7 +413,10 @@ def handle_message(event):
                             TextSendMessage(text=challenge['challenge']['data_structure'][chal_dts]))
 
                     elif 'loc' in option:
-                        unavailableMessage('WIP')
+                        chal_lc = random.choice(list(challenge['challenge']['loops_cond'].keys()))
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=challenge['challenge']['loops_cond'][chal_lc]))
 
                     elif 'def' in option:
                         unavailableMessage('WIP')

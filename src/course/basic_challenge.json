@@ -8,7 +8,8 @@
       "volume_cone" : "CONE SHAPED\n\nCreate a program that calculates the volume and surface area of a cone where pi is 3.14, radius of 12m and the height of 16m. Once you get the value of the two, divide sum them up and print it out.",
       "pythagoras" : "PYTHAGORAS\n\nCreate a program that calculates the Pythagoras Theorem using the formula a² + b² = c². The program must be reversible, meaning that it can calculate a, b, and c all together. The values of a, b and c are up to the user.",
       "statistic_mean" : "STATISTIC MEAN\n\nCreate a program that finds the mean (average) of a given data. The data is up to you, but atleast 20 numbers long.",
-      "meter_conversion" : "METER CONVERSION\n\nCreate a program that converts from kilometers(km) to milimeters(mm). You can start from anywhere you want but must fit all the ladders. The value of the starting point is up to you but the rest cannot be hard coded and when the starting value changes, the others changes as well."
+      "meter_conversion" : "METER CONVERSION\n\nCreate a program that converts from kilometers(km) to milimeters(mm). You can start from anywhere you want but must fit all the ladders. The value of the starting point is up to you but the rest cannot be hard coded and when the starting value changes, the others changes as well.",
+      "val_swap" : "VALUE SWAP\n\nCreate a program that swaps the value of 2 variables and print them out before and after the switch."
     },
     "strings" : {
       "story_time" : "STORY TIME\n\nCreate a program that prints a short story (it can be anything you want) but the characters, places, monsters and all other details must be inputted by the user, Once then print the entire string and see the story in action.",
@@ -24,10 +25,23 @@
       "student_profile" : "STUDENT PROFILE\n\nCreate a program that stores a list containing a list that stores the name, age, majors and nationality. Input atleast 5 students to the list, and print each list by using index.",
       "list_average" : "LIST AVERAGE\n\nCreate a program that stores a list with the items being numbers (min. 10 items) and then find the average of the list item.",
       "eng_dict" : "ENGLISH DICTIONARY\n\nCreate a program that can translate a word from english to your mother tounge (language you grow up with) using the features of dictionaries keys and values. The user can input a word and then the output would be the translated word.",
-      "nation_info" : "NATION CAPITAL\n\nCreate a program that can output the informations of the nation by inputting the nation using the features of dictionaries keys and values. The information must be tuple containing capital city, currency, language and president."
+      "nation_info" : "NATION CAPITAL\n\nCreate a program that can output the informations of the nation by inputting the nation using the features of dictionaries keys and values. The information must be tuple containing capital city, currency, language and president.",
+      "multi_array" : "MULTI ARRAY\n\nCreate a multi dimensional array of x,y and z that stores the value of 0 to 10. Then print all x,y and z using list indexing.",
+      "dict_list" : "DICTIONARY LIST\n\nCreate a list that stores a dict of names and age (min. 3 dicts), each dicts are different, because each dicts are formed and sorted by country of people, so dict A contains people from the same country but different countries from B. By using your list and dict knowledge, can you get the name and age of each person using the list that contains the dict.",
+      "tuple_split" : "TUPLE INDEX\n\nCreate a tuple that stores a string, by using only tuple, split the string into characters with different index.",
+      "min_max" : "MIN AND MAX\n\nCreate a program that finds the maximum and minimum value of items inside a list. Then print them out as well as the difference between them."
     },
     "loops_cond" : {
-
+      "say_hello" : "SAY HELLO\n\nCreate a program that loops over a list of names (min. 10 items) and print out the names with the string saying 'Hello [Name]'.",
+      "polynomial_loop" : "POLYNOMIAL LOOP\n\nCreate a program that calculates the polynomial 'x² + 4x - 3' with the variable x being the range from 0 to 100.",
+      "good_morning" : "GOOD MORNING\n\nCreate a program that stores a dictionary of names as the key and their language as the value. Then create a condition that checks if the name is in the dict, if it is then say hello to the names using their language.",
+      "hobby_count" : "HOBBY COUNT\n\nCreate a program that takes a user input and append it to a list (min. 10 inputs). Then the program will check if a anyone has the same hobbies. If so then it will print out what hobby it is, if not then print out 'No hobbies are alike'.",
+      "to_do_list" : "TO DO LIST\n\nCreate a program that takes a user input and append it tot a list (min. 10 inputs). Then the program will print out the items (using loops) inside the list alphabetically.",
+      "prime_check" : "PRIME CHECK\n\nCreate a program that checks if the numbers are considered to be prime numbers in the range of 1 to 100. Once then print out only the prime numbers.",
+      "odd_even" : "ODD EVEN\n\nCreate a program that checks if the number is ood or even from the range of 0 to 100. Then print out all the numbers with '[Number] is [State]' where state is either odd or even.",
+      "grading" : "GRADING\n\nCreate a program that takes a user input (min. 10 inputs) from 0 to 100, and then grade it as alphabets from F to A+.\n\nF is 0 to 20, E is 21 to 40, D is 41 to 60, C is 61 to 75, B is 76 to 85, A is 86 to 99 and A+ is 100.",
+      "login_message" : "LOGIN MESSAGE\n\nCreate a program that enables a user to login using input, the password is stored indise a dict as the key and the message is the value of the key. If the password is correct, then print the message. The user has 3 tries to input the password correctly, if it exceeds the limit, then exit out the program.",
+      "vocal_letter" : "VOCAL LETTER\n\nCreate a program that counts vocal letters in a string (min. 100 characters). Then print out the percentage of characters that are vocal inside the string.\n\nExample : vc/n\n\nWhere 'vc' is vocal count and 'n' is the length of the string.",
     },
     "function" : {
 
