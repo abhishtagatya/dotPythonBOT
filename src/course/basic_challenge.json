@@ -18,7 +18,8 @@
       "form_print" : "FORM\n\nCreate a program that prints the users data in a formatted string by describing the person, the data is inputted by the user of the program (name, age, location, gender, education, etc).",
       "ordering_food" : "ORDERING FOOD\n\nCreate a program that takes the menu of a user and then displays it. The program must be interactive, as if you were talking to a person.",
       "sphere_calc" : "SPHERE CALCULATOR\n\nCreate a program that calculates the volume and surface area of a sphere, where pi is 3.14 and the rest is inputted by the user. The output must be a formatted string with the results.",
-      "term_calc" : "TERMINAL CALCULATOR\n\nCreate a program that calculates the users input, using a function that evaluates a string and then processing it as a command. Hint : No conditions are needed to make this work."
+      "term_calc" : "TERMINAL CALCULATOR\n\nCreate a program that calculates the users input, using a function that evaluates a string and then processing it as a command. Hint : No conditions are needed to make this work.",
+      "tax_calc" : "TAX CALCULATOR\n\nCreate a program that calculates taxes of food bought in a restaurant, the foods are inputted by the users as orders followed with the price ([Food] [Price]). Calculate the total of purchase with 10% of tax"
     },
     "data_structure" : {
       "shopping_list" : "SHOPPING LIST\n\nCreate a program that stores a few items to a list by the users input. Once that is done, print it out alphabetically.",
@@ -29,7 +30,10 @@
       "multi_array" : "MULTI ARRAY\n\nCreate a multi dimensional array of x,y and z that stores the value of 0 to 10. Then print all x,y and z using list indexing.",
       "dict_list" : "DICTIONARY LIST\n\nCreate a list that stores a dict of names and age (min. 3 dicts), each dicts are different, because each dicts are formed and sorted by country of people, so dict A contains people from the same country but different countries from B. By using your list and dict knowledge, can you get the name and age of each person using the list that contains the dict.",
       "tuple_split" : "TUPLE INDEX\n\nCreate a tuple that stores a string, by using only tuple, split the string into characters with different index.",
-      "min_max" : "MIN AND MAX\n\nCreate a program that finds the maximum and minimum value of items inside a list. Then print them out as well as the difference between them."
+      "min_max" : "MIN AND MAX\n\nCreate a program that finds the maximum and minimum value of items inside a list. Then print them out as well as the difference between them.",
+      "second_high" : "SECOND HIGHEST\n\nFind the second highest value from a list of intergers. The list consists of a value between 1 to 100 randomly generated (min. 10 items).",
+      "high_low" : "HIGH TO LOW\n\nCreate a program that sorts a list from highest value to the lowest (min. 20 intergers). Without the 'reverse()' function.",
+      "playlist" : "PLAYLIST\n\nCreate a program that takes a user input of a song name followed with the band/singer ([Song] - [Band/Singer]). Append and store it in a list then display it alphabetically as the output. The list must not have any duplicates."
     },
     "loops_cond" : {
       "say_hello" : "SAY HELLO\n\nCreate a program that loops over a list of names (min. 10 items) and print out the names with the string saying 'Hello [Name]'.",
@@ -41,7 +45,8 @@
       "odd_even" : "ODD EVEN\n\nCreate a program that checks if the number is ood or even from the range of 0 to 100. Then print out all the numbers with '[Number] is [State]' where state is either odd or even.",
       "grading" : "GRADING\n\nCreate a program that takes a user input (min. 10 inputs) from 0 to 100, and then grade it as alphabets from F to A+.\n\nF is 0 to 20, E is 21 to 40, D is 41 to 60, C is 61 to 75, B is 76 to 85, A is 86 to 99 and A+ is 100.",
       "login_message" : "LOGIN MESSAGE\n\nCreate a program that enables a user to login using input, the password is stored indise a dict as the key and the message is the value of the key. If the password is correct, then print the message. The user has 3 tries to input the password correctly, if it exceeds the limit, then exit out the program.",
-      "vocal_letter" : "VOCAL LETTER\n\nCreate a program that counts vocal letters in a string (min. 100 characters). Then print out the percentage of characters that are vocal inside the string.\n\nExample : vc/n\n\nWhere 'vc' is vocal count and 'n' is the length of the string."
+      "vocal_letter" : "VOCAL LETTER\n\nCreate a program that counts vocal letters in a string (min. 100 characters). Then print out the percentage of characters that are vocal inside the string.\n\nExample : vc/n\n\nWhere 'vc' is vocal count and 'n' is the length of the string.",
+      "advance_playlist" : "ADVANCE PLAYLIST\n\nCreate a program that takes a user input of a song name followed with the band/singer ([Song] - [Band/Singer]). Store it in a dict with the band/singer name as the key and the songs as the value. The list inside the dict must not store any duplicates."
     },
     "function" : {
 

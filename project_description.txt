@@ -1,5 +1,5 @@
 dotPython Chat Bot by Abhishta from dotLearn.
-version 0.97 RELEASE (BETA PRODUCTION)
+version 0.98 RELEASE (BETA PRODUCTION)
 
 dotPython is a chat bot that helps people to learn about the Python Programming language.
 
