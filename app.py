@@ -590,27 +590,11 @@ def handle_message(event):
                     line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(text="Hello there, {}".format("programmer!")))
-            # Common Question
-            elif word in ["what", "who", "when", "how", "where"] :
-                if word in "what" and word in "python":
-                    course_message(['gs', 'intro'])
-                elif word in "who":
-                    if word in "python":
-                        course_message(['gs', 'intro'])
-                    elif word in ["dotpython", "dotlearn"]:
-                        dev_message()
-                    else :
-                        line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text="What would you like to ask me?"))
-                else :
-                    continue
             else :
                 line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Sorry {} is not a valid command".format(text)),
                 TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
-        pass
 
 
     if cmd[0] in text:
