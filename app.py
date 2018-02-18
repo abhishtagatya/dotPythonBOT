@@ -592,8 +592,8 @@ def handle_message(event):
                     TextSendMessage(text="Hello there, {}".format("programmer!")))
             # Common Question
             elif word in ["what", "who", "when", "how", "where"] :
-                if word is "what":
-                    if word is "python":
+                if word in "what":
+                    if word in "python":
                         course_message(['gs', 'intro'])
                     elif word in ["dotpython", "dotlearn",]:
                         ask_message(['faq'])
@@ -601,8 +601,8 @@ def handle_message(event):
                         line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text="What would you like to ask me?"))
-                elif word is "who":
-                    if word is "python":
+                elif word in "who":
+                    if word in "python":
                         course_message(['gs', 'intro'])
                     elif word in ["dotpython", "dotlearn"]:
                         dev_message()
