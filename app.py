@@ -34,10 +34,10 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
-version = 'v0.98 RELEASE'
+version = 'v0.99 RELEASE'
 
-line_bot_api = LineBotApi('<CHANNEL ACCESS TOKEN>')
-handler = WebhookHandler('<CHANNEL SECRET>')
+line_bot_api = LineBotApi('z0g2r0/7tVh6rEYEMA/Utv6G5d9y3LEtpgRdLHUSrSQOAfl7iQCwtaZ/TEEVAxE6DKLtOShFdloBJv9pU/RFw87WfvmwT/aW5rNLttga0N8fOjSmET3QWgozNt35VnDK4+faM2ACvG2fqpr5vIB88QdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('ee6ad8acedc43c85b4a0a277807d5df5')
 
 
 @app.route("/callback", methods=['POST'])
@@ -64,7 +64,7 @@ def handle_message(event):
 
     # Available commands
     # Command = course / ask / docs / dev / group / donate / feedback / key / social
-    cmd = ['/course','/ask','/docs','/dev','/group','/donate','/feedback','/key','/credits','/social','/new']
+    cmd = ['course','ask','docs','dev','group','donate','feedback','key','credits','social','new']
     text = (event.message.text).lower()
     text_argument = text.split()
 
@@ -73,7 +73,9 @@ def handle_message(event):
 
     def course_message(option=[]):
         """ Enter the course option and select from a few different course option """
-        if 'gs' in option:
+        if ('gs' in option or
+            'started' in option or
+            'start' in option):
             # Get started key : 'gs'
 
             with open('src/course/getting_started.json','r') as course_getting_started:
@@ -113,7 +115,8 @@ def handle_message(event):
                         TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
-        elif 'bsc' in option:
+        elif ('bsc' in option or
+            'basic' in option):
             # Basic key : 'bsc'
             with open('src/course/basic_course.json','r') as course_basic:
                 # Opens basic_course.json from src/course
@@ -323,7 +326,8 @@ def handle_message(event):
                         TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
-        elif 'fo' in option:
+        elif ('fo' in option or
+            'file' in option):
             # File operation key : 'fo'
 
             with open('src/course/fileops_course.json','r') as course_fileop:
@@ -377,7 +381,9 @@ def handle_message(event):
                         TextSendMessage(text=lesson['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
-        elif 'psm' in option:
+        elif ('psm' in option or
+            'standard' in option or
+            'module' in option):
             # Python standard module key : 'psm'
             unavailableMessage('WIP')
 
@@ -385,7 +391,9 @@ def handle_message(event):
             # Third Party key : 'ptpm'
             unavailableMessage('WIP')
 
-        elif 'chal' in option:
+        elif ('chal' in option or
+            'challenge' in option or
+            'trial' in option):
             # Challenge key : 'chal'
             if 'bc' in option:
                 # Basic Challenge key : 'bc'
@@ -450,7 +458,7 @@ def handle_message(event):
                 event.reply_token,[
                 TextSendMessage(text="Lets enroll the course!".format(text)),
                 TextSendMessage(
-                text="Choose the course you want to learn : \n 1. Getting Started (gs) \n 2. Basic (bsc) \n 3. File Operation (fo) \n 4. Python Standard Module (psm) \n 5. Python Third Party Module (ptpm) \n 6. Python Challange (chal)"),
+                text="Choose the course you want to learn : \n 1. Getting Started (gs) \n 2. Basic (bsc) \n 3. File Operation (fo) \n 4. Python Standard Module (psm) \n 5. Python Third Party Module (ptpm) \n 6. Python Challenge (chal)"),
                 TextSendMessage(text="To enroll, type : /course (chapter)")])
 
 
@@ -566,6 +574,51 @@ def handle_message(event):
         else :
             pass
 
+    def chatInteraction(mes=[]):
+        ''' Adds Human like interactions to python to make the bot doesnt really feel like a robot '''
+
+        # Common Conversations
+        # WARNING! : CONTAINS BAD JOKES, READ AT YOUR OWN RISK!
+        for word in mes:
+            # Greetings
+            if word in ["hello","hi","hey","greetings",]:
+                try :
+                    line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text="Hello there, {}!".format(user_profile.display_name)))
+                except :
+                    line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text="Hello there, {}".format("programmer!")))
+            # Common Question
+            elif word in ["what", "who", "when", "how", "where"] :
+                if word is "what":
+                    if word is "python":
+                        course_message(['gs', 'intro'])
+                    elif word in ["dotpython", "dotlearn",]:
+                        ask_message(['faq'])
+                    else :
+                        line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text="What would you like to ask me?"))
+                elif word is "who":
+                    if word is "python":
+                        course_message(['gs', 'intro'])
+                    elif word in ["dotpython", "dotlearn"]:
+                        dev_message()
+                    else :
+                        line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text="What would you like to ask me?"))
+                else :
+                    continue
+            else :
+                line_bot_api.reply_message(
+                event.reply_token,[
+                TextSendMessage(text="Sorry {} is not a valid command".format(text)),
+                TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
+        pass
+
 
     if cmd[0] in text:
         course_message(text_argument)
@@ -590,10 +643,7 @@ def handle_message(event):
     elif cmd[10] in text:
         new_message()
     else :
-        line_bot_api.reply_message(
-        event.reply_token,[
-        TextSendMessage(text="Sorry {} is not a valid command".format(text)),
-        TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
+        chatInteraction(text_argument)
 
 
 if __name__ == "__main__":
