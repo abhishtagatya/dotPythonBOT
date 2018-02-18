@@ -49,7 +49,15 @@
       "advance_playlist" : "ADVANCE PLAYLIST\n\nCreate a program that takes a user input of a song name followed with the band/singer ([Song] - [Band/Singer]). Store it in a dict with the band/singer name as the key and the songs as the value. The list inside the dict must not store any duplicates."
     },
     "function" : {
-
+      "str_arrange" : "STRING ARRANGE\n\nCreate a program that takes a user input and pass it into a function that returns back the string but reversed. Once then print it out and then pass it into another function that only prints out the vowels of the string.",
+      "rm_vowels" : "REMOVE VOWELS\n\nCreate a program that takes a user input of string and pass it into a function that removes the vowels of the string and then return it.",
+      "multi_arg" : "MULTIPLE ARGUMENTS\n\nCreate a function that takes 3 arguments (A, B, C). A and B can only take one argument but C can take multiple argument. Print out all the passed in arguments (min. 5).",
+      "prime_list" : "PRIME LIST\n\nCreate a program that takes user input of numbers (min. 10 numbers) and then pass it into a function as a list. The function will iterate over the list checking if the indices are prime, once then print out all the prime numbers in the list.",
+      "number_guess" : "NUMBER GUESS\n\nCreate a program that has 2 functions, function A is where the user inputs a number and checks if the number is in range 0 - 10 and then passes the return value to function 2 where it will match the number to a randomly generated number (import random.randint is valid). If its true, then quit the game, else keep on playing.",
+      "square_cube" : "SQUARE CUBE\n\nCreate functions square and cube, square takes a user input as an argument (int or float). Calculate the Area of the square and then pass it into the cube function to find the area of the cube and the volume, print out both result.",
+      "factorial" : "FACTORIAL (n!)\n\nCreate a factorial function using function recursions. In mathematics, factorials is product of all positive intergers less than or equal to n.\n\nExample :\n5! = 5*4*3*2*1 = 120",
+      "list_sum" : "LIST SUM\n\nCreate a function that takes a list of intergers as the argument and find the sum using recursions of function to iterate over it.",
+      "num_generator" : "NUMBER GENERATOR\n\nCreate a generator that produces a series of prime numbers (min. 6) once the use the 'close()' function to end it."
     },
     "classobj" : {
 

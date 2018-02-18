@@ -427,7 +427,10 @@ def handle_message(event):
                             TextSendMessage(text=challenge['challenge']['loops_cond'][chal_lc]))
 
                     elif 'def' in option:
-                        unavailableMessage('WIP')
+                        chal_def = random.choice(list(challenge['challenge']['function'].keys()))
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=challenge['challenge']['function'][chal_def]))
 
                     elif 'cls' in option:
                         unavailableMessage('WIP')
@@ -579,23 +582,24 @@ def handle_message(event):
 
         # Common Conversations
         # WARNING! : CONTAINS BAD JOKES, READ AT YOUR OWN RISK!
-        for word in mes:
-            # Greetings
-            if word in ["hello","hi","hey","greetings",]:
-                try :
-                    line_bot_api.reply_message(
+        with open('src/interact/bot_interact.json', 'r') as inter_mes:
+            chat_int = json.load(inter_mes)
+
+            if ('hello' in mes or 'hey' in mes or
+                'hi' in mes or 'halo' in mes):
+                line_bot_api.reply_message(
                     event.reply_token,
-                    TextSendMessage(text="Hello there, {}!".format(user_profile.display_name)))
-                except :
-                    line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="Hello there, {}".format("programmer!")))
+                    TextSendMessage(text=random.choice(chat_int["greeting"])))
+            elif ('joke' in mes or 'funny' in mes):
+                unavailableMessage('WIP')
+                #line_bot_api.reply_message(
+                #    event.reply_token,
+                #    TextSendMessage(text=random.choice(chat_int["joke"])))
             else :
                 line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Sorry {} is not a valid command".format(text)),
                 TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
-
 
     if cmd[0] in text:
         course_message(text_argument)
