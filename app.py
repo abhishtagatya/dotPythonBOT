@@ -587,9 +587,15 @@ def handle_message(event):
 
             if ('hello' in mes or 'hey' in mes or
                 'hi' in mes or 'halo' in mes):
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=random.choice(chat_int["greeting"])))
+                try :
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=random.choice(chat_int["greeting"]).format(user_profile.display_name)))
+                except :
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=random.choice(chat_int["greeting"]).format("Human")))
+
             elif ('joke' in mes or 'funny' in mes):
                 unavailableMessage('WIP')
                 #line_bot_api.reply_message(
