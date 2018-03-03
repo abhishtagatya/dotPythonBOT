@@ -465,46 +465,47 @@ def handle_message(event):
     def ask_message(option=[]):
         """ Enter to ask questions about Python programming and FAQ """
 
-        with open('src/ask/ask.json','r') as ask_file:
-            question = json.load(ask_file)
-            if 'faq' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=question['ask']['FAQ']))
-            elif 'promote' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=question['ask']['promote']))
-            elif 'course' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=question['ask']['course']))
-            elif 'version' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=(question['ask']['version']).format(version)))
-            elif 'link' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=question['ask']['link']))
-            elif 'group' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=question['ask']['group']))
-            elif 'about' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=question['ask']['about']))
-            elif 'python' in option:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text=question['ask']['python']))
-            else :
-                line_bot_api.reply_message(
-                    event.reply_token,[
-                    TextSendMessage(text=question['ask']['description']),
-                    TextSendMessage(text=question['ask']['menu_option']),
-                    TextSendMessage(text="To ask questions, type : /ask (question)")])
+        url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/ask/ask.json')
+        question = url_req.json()
+
+        if 'faq' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=question['ask']['FAQ']))
+        elif 'promote' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=question['ask']['promote']))
+        elif 'course' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=question['ask']['course']))
+        elif 'version' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=(question['ask']['version']).format(version)))
+        elif 'link' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=question['ask']['link']))
+        elif 'group' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=question['ask']['group']))
+        elif 'about' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=question['ask']['about']))
+        elif 'python' in option:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=question['ask']['python']))
+        else :
+            line_bot_api.reply_message(
+                event.reply_token,[
+                TextSendMessage(text=question['ask']['description']),
+                TextSendMessage(text=question['ask']['menu_option']),
+                TextSendMessage(text="To ask questions, type : /ask (question)")])
 
     def docs_message():
         unavailableMessage('WIP')
@@ -515,12 +516,12 @@ def handle_message(event):
             TextSendMessage(text="dotPython was created by Abhishta Gatya, 2018\n\nabhishtagatya.onuniverse.com"))
 
     def group_message():
-        with open('src/group/group.txt','r') as group_mes:
-            mes = group_mes.read()
+        url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/group/group.txt')
+        mes = url_req.text
 
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=mes))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=mes))
 
 
     def donate_message():
@@ -537,12 +538,12 @@ def handle_message(event):
             TextSendMessage(text="Available Keys :\n + Join Course (/course) \n + Ask Questions (/ask) \n + Python Documentations (/docs) \n + Developer (/dev) \n + Learning Group (/group) \n + Donation (/donate) \n + Feedbacks (/feedback) \n + Source Credits (/credits) \n + Social Media (/social) \n + Show Keys (/key)"))
 
     def credits_message():
-        with open('src/credit/credit.txt','r') as credit_mes:
-            mes = credit_mes.read()
+        url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/credit/credit.txt')
+        mes = url_req.text
 
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=mes))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=mes))
 
 
     def social_message():
@@ -579,30 +580,30 @@ def handle_message(event):
 
         # Common Conversations
         # WARNING! : CONTAINS BAD JOKES, READ AT YOUR OWN RISK!
-        with open('src/interact/bot_interact.json', 'r') as inter_mes:
-            chat_int = json.load(inter_mes)
+        url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/interact/bot_interact.json')
+        reply_mes = url_req.json()
 
-            if ('hello' in mes or 'hey' in mes or
-                'hi' in mes or 'halo' in mes):
-                try :
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=random.choice(chat_int["greeting"]).format(user_profile.display_name)))
-                except :
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=random.choice(chat_int["greeting"]).format("Human")))
-
-            elif ('joke' in mes or 'funny' in mes):
-                unavailableMessage('WIP')
-                #line_bot_api.reply_message(
-                #    event.reply_token,
-                #    TextSendMessage(text=random.choice(chat_int["joke"])))
-            else :
+        if ('hello' in mes or 'hey' in mes or
+            'hi' in mes or 'halo' in mes):
+            try :
                 line_bot_api.reply_message(
-                event.reply_token,[
-                TextSendMessage(text="Sorry {} is not a valid command".format(text)),
-                TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
+                    event.reply_token,
+                    TextSendMessage(text=random.choice(reply_mes["greeting"]).format(user_profile.display_name)))
+            except :
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=random.choice(reply_mes["greeting"]).format("Human")))
+
+        elif ('joke' in mes or 'funny' in mes):
+            unavailableMessage('WIP')
+            #line_bot_api.reply_message(
+            #    event.reply_token,
+            #    TextSendMessage(text=random.choice(chat_int["joke"])))
+        else :
+            line_bot_api.reply_message(
+            event.reply_token,[
+            TextSendMessage(text="Sorry {} is not a valid command".format(text)),
+            TextSendMessage(text="Enter /key for commands or /ask for guide \uDBC0\uDC84")])
 
     if cmd[0] in text:
         course_message(text_argument)
