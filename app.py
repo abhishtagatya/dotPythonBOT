@@ -119,268 +119,269 @@ def handle_message(event):
         elif ('bsc' in option or
             'basic' in option):
             # Basic key : 'bsc'
-            with open('src/course/basic_course.json','r') as course_basic:
-                # Opens basic_course.json from src/course
-                lesson = json.load(course_basic)
-                if 'syn' in option:
-                    # Syntax key : 'syn'
-                    if 'var' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['syntax']['variable']))
-                    elif 'bool' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['syntax']['boolean']))
-                    elif 'reassign' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['syntax']['reassign']))
-                    elif 'comment' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['syntax']['comment']))
-                    elif 'operator' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['syntax']['operator']))
-                    elif 'type' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['syntax']['data_type']))
-                    else :
-                        line_bot_api.reply_message(
-                            event.reply_token,[
-                            TextSendMessage(text=lesson['lesson']['syntax']['description']),
-                            TextSendMessage(text=lesson['lesson']['syntax']['menu_option']),
-                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+            # Opens github dlearn-res/course/basic_course.json
+            url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/course/basic_course.json')
+            lesson = url_req.json()
 
-                elif 'str' in option:
-                    # Strings key : 'str'
-                    if 'index' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['strings']['str_index']))
-                    elif 'operate' in option:
-                        try :
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format(user_profile.display_name,
-                                user_profile.status_message)))
-                        except LineBotApi :
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format("John","happy")))
-                    elif 'func' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['strings']['str_func']))
-                    elif 'format' in option:
-                        try :
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format(user_profile.display_name)))
-                        except LineBotApi:
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format('He/She')))
-                    elif 'input' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['strings']['str_input']))
-                    elif 'typecast' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['strings']['typecast']))
-                    else :
-                        line_bot_api.reply_message(
-                            event.reply_token,[
-                            TextSendMessage(text=lesson['lesson']['strings']['description']),
-                            TextSendMessage(text=lesson['lesson']['strings']['menu_option']),
-                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
-
-                elif 'dts' in option:
-                    # Data structure key : 'dts'
-                    if 'list' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['data_structure']['list']))
-                    elif 'tuple' in option:
-                        try :
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['data_structure']['tuple']).format(user_profile.display_name)))
-                        except LineBotApi:
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['data_structure']['tuple']).format('you')))
-                    elif 'dict' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['data_structure']['dict']))
-                    elif 'sets' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['data_structure']['sets']))
-                    elif 'fsets' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['data_structure']['frozensets']))
-                    else :
-                        line_bot_api.reply_message(
-                            event.reply_token,[
-                            TextSendMessage(text=lesson['lesson']['data_structure']['description']),
-                            TextSendMessage(text=lesson['lesson']['data_structure']['menu_option']),
-                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
-
-                elif 'loc' in option:
-                    # Loops and Condition key : 'loc'
-                    if 'while' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['loops_cond']['while_loop']))
-                    elif 'for' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['loops_cond']['for_loop']))
-                    elif 'if_else' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['loops_cond']['if_else']).format(random.randint(0,9))))
-                    elif 'nested' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['loops_cond']['nested']))
-                    elif 'bnc' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['loops_cond']['break_cont']))
-                    else :
-                        line_bot_api.reply_message(
-                            event.reply_token,[
-                            TextSendMessage(text=lesson['lesson']['loops_cond']['description']),
-                            TextSendMessage(text=lesson['lesson']['loops_cond']['menu_option']),
-                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
-
-                elif 'def' in option:
-                    # Function key : 'def'
-                    if 'declare' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['function']['declare']))
-                    elif 'call' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['function']['call']))
-                    elif 'arg' in option:
-                        try :
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['function']['argument']).format(user_profile.display_name)))
-                        except LineBotApi :
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                TextSendMessage(text=(lesson['lesson']['function']['argument']).format('user')))
-                    elif 'varscope' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['function']['varscope']).format(random.randint(0,9),random.randint(0,9))))
-                    elif 'nested' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['function']['nested']))
-                    elif 'decorator' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=lesson['lesson']['function']['decorator']))
-                    elif 'overload' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['function']['overloading']).format(random.randint(0,9))))
-                    elif 'recursion' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['function']['recursion']).format(random.randint(0,9))))
-                    elif 'generator' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['function']['generator']).format(random.randint(0,9))))
-                    elif 'lambda' in option:
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['function']['lambda']).format(random.randint(0,9))))
-                    else :
-                        line_bot_api.reply_message(
-                            event.reply_token,[
-                            TextSendMessage(text=lesson['lesson']['function']['description']),
-                            TextSendMessage(text=lesson['lesson']['function']['menu_option']),
-                            TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
-
-                elif 'cls' in option:
-                    # Class objects key : 'cls'
-                    unavailableMessage('WIP')
-
+            if 'syn' in option:
+                # Syntax key : 'syn'
+                if 'var' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['syntax']['variable']))
+                elif 'bool' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['syntax']['boolean']))
+                elif 'reassign' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['syntax']['reassign']))
+                elif 'comment' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['syntax']['comment']))
+                elif 'operator' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['syntax']['operator']))
+                elif 'type' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['syntax']['data_type']))
                 else :
                     line_bot_api.reply_message(
                         event.reply_token,[
-                        TextSendMessage(text=lesson['description']),
-                        TextSendMessage(text=lesson['menu_option']),
+                        TextSendMessage(text=lesson['lesson']['syntax']['description']),
+                        TextSendMessage(text=lesson['lesson']['syntax']['menu_option']),
                         TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+            elif 'str' in option:
+                # Strings key : 'str'
+                if 'index' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['strings']['str_index']))
+                elif 'operate' in option:
+                    try :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format(user_profile.display_name,
+                            user_profile.status_message)))
+                    except LineBotApi :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['strings']['str_operate']).format("John","happy")))
+                elif 'func' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['strings']['str_func']))
+                elif 'format' in option:
+                    try :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format(user_profile.display_name)))
+                    except LineBotApi:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['strings']['str_format']).format('He/She')))
+                elif 'input' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['strings']['str_input']))
+                elif 'typecast' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['strings']['typecast']))
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,[
+                        TextSendMessage(text=lesson['lesson']['strings']['description']),
+                        TextSendMessage(text=lesson['lesson']['strings']['menu_option']),
+                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+            elif 'dts' in option:
+                # Data structure key : 'dts'
+                if 'list' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['data_structure']['list']))
+                elif 'tuple' in option:
+                    try :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['data_structure']['tuple']).format(user_profile.display_name)))
+                    except LineBotApi:
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['data_structure']['tuple']).format('you')))
+                elif 'dict' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['data_structure']['dict']))
+                elif 'sets' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['data_structure']['sets']))
+                elif 'fsets' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['data_structure']['frozensets']))
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,[
+                        TextSendMessage(text=lesson['lesson']['data_structure']['description']),
+                        TextSendMessage(text=lesson['lesson']['data_structure']['menu_option']),
+                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+            elif 'loc' in option:
+                # Loops and Condition key : 'loc'
+                if 'while' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['loops_cond']['while_loop']))
+                elif 'for' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['loops_cond']['for_loop']))
+                elif 'if_else' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=(lesson['lesson']['loops_cond']['if_else']).format(random.randint(0,9))))
+                elif 'nested' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['loops_cond']['nested']))
+                elif 'bnc' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['loops_cond']['break_cont']))
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,[
+                        TextSendMessage(text=lesson['lesson']['loops_cond']['description']),
+                        TextSendMessage(text=lesson['lesson']['loops_cond']['menu_option']),
+                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+            elif 'def' in option:
+                # Function key : 'def'
+                if 'declare' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['function']['declare']))
+                elif 'call' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['function']['call']))
+                elif 'arg' in option:
+                    try :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['function']['argument']).format(user_profile.display_name)))
+                    except LineBotApi :
+                        line_bot_api.reply_message(
+                            event.reply_token,
+                            TextSendMessage(text=(lesson['lesson']['function']['argument']).format('user')))
+                elif 'varscope' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=(lesson['lesson']['function']['varscope']).format(random.randint(0,9),random.randint(0,9))))
+                elif 'nested' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['function']['nested']))
+                elif 'decorator' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=lesson['lesson']['function']['decorator']))
+                elif 'overload' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=(lesson['lesson']['function']['overloading']).format(random.randint(0,9))))
+                elif 'recursion' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=(lesson['lesson']['function']['recursion']).format(random.randint(0,9))))
+                elif 'generator' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=(lesson['lesson']['function']['generator']).format(random.randint(0,9))))
+                elif 'lambda' in option:
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=(lesson['lesson']['function']['lambda']).format(random.randint(0,9))))
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,[
+                        TextSendMessage(text=lesson['lesson']['function']['description']),
+                        TextSendMessage(text=lesson['lesson']['function']['menu_option']),
+                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
+
+            elif 'cls' in option:
+                # Class objects key : 'cls'
+                unavailableMessage('WIP')
+
+            else :
+                line_bot_api.reply_message(
+                    event.reply_token,[
+                    TextSendMessage(text=lesson['description']),
+                    TextSendMessage(text=lesson['menu_option']),
+                    TextSendMessage(text="To enroll, type : /course (chapter) (lesson) (sublesson)")])
 
         elif ('fo' in option or
             'file' in option):
             # File operation key : 'fo'
 
-            with open('src/course/fileops_course.json','r') as course_fileop:
-                # Opens the src/course/fileops course and reading it!
-                lesson = json.load(course_fileop)
+            # Opens the github dlearn-res/course/fileops course and reading it!
+            url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/course/fileops_course.json')
+            lesson = url_req.json()
 
-                # Below is the Controll flow for the statement 'file operation'
-                if 'open' in option:
-                    # Introduction Keyword
+            # Below is the Controll flow for the statement 'file operation'
+            if 'open' in option:
+                # Introduction Keyword
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['opening_file']))
+            elif 'read' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['reading_file']))
+            elif 'write' in option:
+                try :
                     line_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['opening_file']))
-                elif 'read' in option:
+                        TextSendMessage(text=(lesson['lesson']['writing_file']).format(user_profile.display_name)))
+                except :
                     line_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['reading_file']))
-                elif 'write' in option:
-                    try :
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['writing_file']).format(user_profile.display_name)))
-                    except :
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['writing_file']).format('dotPython')))
-                elif 'clarg' in option:
-                    try :
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['cl_arg']).format(user_profile.display_name)))
-                    except :
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=(lesson['lesson']['cl_arg']).format('dotPython')))
-                elif 'fys' in option:
+                        TextSendMessage(text=(lesson['lesson']['writing_file']).format('dotPython')))
+            elif 'clarg' in option:
+                try :
                     line_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['file_system']))
-                elif 'csv' in option:
+                        TextSendMessage(text=(lesson['lesson']['cl_arg']).format(user_profile.display_name)))
+                except :
                     line_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['csv_file']))
-                elif 'json' in option:
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['json_file']))
-                else :
-                    line_bot_api.reply_message(
-                        event.reply_token,[
-                        TextSendMessage(text=lesson['description']),
-                        TextSendMessage(text=lesson['menu_option']),
-                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
+                        TextSendMessage(text=(lesson['lesson']['cl_arg']).format('dotPython')))
+            elif 'fys' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['file_system']))
+            elif 'csv' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['csv_file']))
+            elif 'json' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['json_file']))
+            else :
+                line_bot_api.reply_message(
+                    event.reply_token,[
+                    TextSendMessage(text=lesson['description']),
+                    TextSendMessage(text=lesson['menu_option']),
+                    TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
         elif ('psm' in option or
             'standard' in option or
@@ -398,50 +399,45 @@ def handle_message(event):
             # Challenge key : 'chal'
             if 'bc' in option:
                 # Basic Challenge key : 'bc'
-                with open('src/course/basic_challenge.json','r') as basic_challenge:
-                    challenge = json.load(basic_challenge)
+                url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/course/fileops_course.json')
+                challenge = url_req.json()
 
-                    # The code below chooses a random key to be printed out as text from the JSON file
+                # The code below chooses a random key to be printed out as text from the JSON file
 
-                    if 'syn' in option:
-                        chal_syn = random.choice(list(challenge['challenge']['syntax'].keys()))
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['syntax'][chal_syn]))
+                if 'syn' in option:
+                    chal_syn = random.choice(list(challenge['challenge']['syntax'].keys()))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=challenge['challenge']['syntax'][chal_syn]))
+                elif 'str' in option:
+                    chal_str = random.choice(list(challenge['challenge']['strings'].keys()))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=challenge['challenge']['strings'][chal_str]))
+                elif 'dts' in option:
+                    chal_dts = random.choice(list(challenge['challenge']['data_structure'].keys()))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=challenge['challenge']['data_structure'][chal_dts]))
+                elif 'loc' in option:
+                    chal_lc = random.choice(list(challenge['challenge']['loops_cond'].keys()))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=challenge['challenge']['loops_cond'][chal_lc]))
+                elif 'def' in option:
+                    chal_def = random.choice(list(challenge['challenge']['function'].keys()))
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text=challenge['challenge']['function'][chal_def]))
+                elif 'cls' in option:
+                    unavailableMessage('WIP')
 
-                    elif 'str' in option:
-                        chal_str = random.choice(list(challenge['challenge']['strings'].keys()))
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['strings'][chal_str]))
-
-                    elif 'dts' in option:
-                        chal_dts = random.choice(list(challenge['challenge']['data_structure'].keys()))
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['data_structure'][chal_dts]))
-
-                    elif 'loc' in option:
-                        chal_lc = random.choice(list(challenge['challenge']['loops_cond'].keys()))
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['loops_cond'][chal_lc]))
-
-                    elif 'def' in option:
-                        chal_def = random.choice(list(challenge['challenge']['function'].keys()))
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage(text=challenge['challenge']['function'][chal_def]))
-
-                    elif 'cls' in option:
-                        unavailableMessage('WIP')
-
-                    else :
-                        line_bot_api.reply_message(
-                            event.reply_token,[
-                            TextSendMessage(text=challenge['description']),
-                            TextSendMessage(text=challenge['menu_option']),
-                            TextSendMessage(text="To enroll, type : /course (chapter) (challenge)")])
+                else :
+                    line_bot_api.reply_message(
+                        event.reply_token,[
+                        TextSendMessage(text=challenge['description']),
+                        TextSendMessage(text=challenge['menu_option']),
+                        TextSendMessage(text="To enroll, type : /course (chapter) (challenge)")])
 
             elif 'foc' in option:
                 unavailableMessage('WIP')
