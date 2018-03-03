@@ -594,11 +594,11 @@ def handle_message(event):
                     event.reply_token,
                     TextSendMessage(text=random.choice(reply_mes["greeting"]).format("Human")))
 
-        elif ('joke' in mes or 'funny' in mes):
-            unavailableMessage('WIP')
-            #line_bot_api.reply_message(
-            #    event.reply_token,
-            #    TextSendMessage(text=random.choice(chat_int["joke"])))
+        elif ('joke' in mes or 'funny' in mes or
+            'laugh' in mes):
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=random.choice(chat_int["joke"])))
         else :
             line_bot_api.reply_message(
             event.reply_token,[
