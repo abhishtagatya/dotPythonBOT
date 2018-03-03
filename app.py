@@ -598,7 +598,7 @@ def handle_message(event):
             'laugh' in mes):
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text=random.choice(chat_int["joke"])))
+                TextSendMessage(text=random.choice(reply_mes["joke"])))
         else :
             line_bot_api.reply_message(
             event.reply_token,[
