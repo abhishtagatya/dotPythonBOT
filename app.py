@@ -18,6 +18,7 @@ import sys
 import json
 import random
 
+import requests
 from flask import Flask, request, abort
 
 from linebot import (
@@ -78,42 +79,42 @@ def handle_message(event):
             'start' in option):
             # Get started key : 'gs'
 
-            with open('src/course/getting_started.json','r') as course_getting_started:
-                # Opens the src/course/getting started and reading it!
-                lesson = json.load(course_getting_started)
+            # Opens the github dlearn-res/course/getting_started.json and reading it!
+            url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/course/getting_started.json')
+            lesson = requests.json()
 
-                # Below is the Controll flow for the statement 'getting started'
-                if 'intro' in option:
-                    # Introduction Keyword
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['introduction_lesson']))
-                elif 'install' in option:
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['install_lesson']))
-                elif 'version' in option:
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['version_lesson']))
-                elif 'inter' in option:
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['interpreter_lesson']))
-                elif 'script' in option:
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['script_lesson']))
-                elif 'run' in option:
-                    line_bot_api.reply_message(
-                        event.reply_token,
-                        TextSendMessage(text=lesson['lesson']['pyrun_lesson']))
-                else :
-                    line_bot_api.reply_message(
-                        event.reply_token,[
-                        TextSendMessage(text=lesson['description']),
-                        TextSendMessage(text=lesson['menu_option']),
-                        TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
+            # Below is the Controll flow for the statement 'getting started'
+            if 'intro' in option:
+                # Introduction Keyword
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['introduction_lesson']))
+            elif 'install' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['install_lesson']))
+            elif 'version' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['version_lesson']))
+            elif 'inter' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['interpreter_lesson']))
+            elif 'script' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['script_lesson']))
+            elif 'run' in option:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text=lesson['lesson']['pyrun_lesson']))
+            else :
+                line_bot_api.reply_message(
+                    event.reply_token,[
+                    TextSendMessage(text=lesson['description']),
+                    TextSendMessage(text=lesson['menu_option']),
+                    TextSendMessage(text="To enroll, type : /course (chapter) (lesson)")])
 
         elif ('bsc' in option or
             'basic' in option):
