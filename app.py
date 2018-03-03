@@ -81,7 +81,7 @@ def handle_message(event):
 
             # Opens the github dlearn-res/course/getting_started.json and reading it!
             url_req = requests.get('https://raw.githubusercontent.com/abhishtagatya/dlearn-res/master/dotPython/course/getting_started.json')
-            lesson = requests.json()
+            lesson = url_req.json()
 
             # Below is the Controll flow for the statement 'getting started'
             if 'intro' in option:
