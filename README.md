@@ -33,6 +33,8 @@ Or click here to add the bot using links!
 
 dotPython accepts contribution in forms of knowledge and informations all around the world of Python programming.
 
+To contribute, check out our [dlearn-res](https://github.com/abhishtagatya/dlearn-res) repository and issue us on topics, subjects and feature you want to add on dotLearn Bots!
+
 Feel free to give feedbacks over at 'saveitcomm@yahoo.com'
 
 **Although it is open source in some ways, you cannot distribute or replicate dotPython.**
@@ -50,3 +52,4 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LIC
 * Using LINE's line-bot-sdk
 * Flask
 * Heroku
+* GitHub
